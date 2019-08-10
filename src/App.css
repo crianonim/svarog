@@ -18,7 +18,11 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
-
+.Svg-view {
+ width:200px;
+ padding: 1rem;
+ border: 1px solid grey;
+}
 .App-link {
   color: #61dafb;
 }
