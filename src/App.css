@@ -37,6 +37,7 @@
 }
 .flex-row {
   display: flex;
+  flex-wrap:wrap;
 }
 @keyframes App-logo-spin {
   from {
