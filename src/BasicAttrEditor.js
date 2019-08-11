@@ -43,7 +43,7 @@ const BasicAttrEditor=(props)=>{
                         controls[i][0]=e.target.value;
                         setControls(controls.slice());
                         props.changed(Object.fromEntries(controls));
-                    }}  value={key}></input>
+                    }} style={{width:key.length/2+"rem"}} value={key}></input>
                     <input onChange={(e)=>{
                         controls[i][1]=e.target.value;
                         setControls(controls.slice());

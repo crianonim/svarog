@@ -32,7 +32,7 @@ export const start = [
   }
 ].map( (el,id)=>({...el,id }) );
 export const defaultValues = {
-  circle: '{"cx":50,"cy":30,"r":10}',
-  rect: '{"x":20,"y":50,"width":40,"height":20}',
-  polygon: '{"points":"10 10 45 15 20 35"}'
+  circle: { cx:50,cy:30,r:10},
+  rect: {x:20,y:50,width:40,height:20},
+  polygon: {points:"10 10 45 15 20 35"}
 };

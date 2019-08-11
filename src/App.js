@@ -14,7 +14,6 @@ const App = () => {
   });
   
   const [shapes, setShapes] = useState(start);
-  const [isUpdate, setIsUpdate] = useState(false);
   const [newShape, setNewShape] = useState("circle");
   const [svgAttrs,setSvgAttrs] = useState({viewBox:"0 0 720 720"});
   return (
@@ -56,9 +55,8 @@ const App = () => {
       {shapes.map ( (shape,ind) => (
 	  <div key={shape.id} className="flex-row">
 	  <BasicAttrEditor element={shape.shape} attrs={shape.attributes} changed={(attrs)=>{
-	      const nShapes=shapes.slice();
-	      nShapes[ind].attributes=attrs;
-	      setShapes(nShapes);
+	      shapes[ind].attributes=attrs;
+	      setShapes(shapes.slice());
 
 	  }} />
 	  <div>
