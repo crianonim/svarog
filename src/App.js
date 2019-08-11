@@ -1,133 +1,174 @@
-import React,{ useState, useEffect }  from 'react';
+import React, { useState, useEffect } from "react";
 // import logo from './logo.svg';
-import './App.css';
-const start=[
-  {
-    shape:"circle",
-    attributes:{"cx":151,"cy":132,"r":52,"fill":"red"}
-  },
-  {
-    shape:"circle",
-    attributes:{
-      cx:101,
-      cy:120,
-      r:40,
-      fill:"pink"
-    }
-  },
-  {
-    shape:"circle",
-    attributes:{
-      cx:601,
-      cy:420,
-      r:140,
-      fill:"green"
-    }
-  },
-  {
-    shape:"rect",
-    attributes:{
-      x:40,
-      y:320,
-      width:140,
-      height:200
-    }
-  },
-]
-const defaultValues={
-  "circle":'{"cx":50,"cy":30,"r":10}',
-  "rect":'{"x":20,"y":50,"width":40,"height":20}',
-  "polygon":'{"points":"10 10 45 15 20 35"}'
-}
+import "./App.css";
+import CodePanel from "./CodePanel.js";
 
-const App = ()=>{
-  const updateShapes=()=>{
-    setShapes(shapesControlls.map(i=>({shape:i.shape,attributes:JSON.parse(i.attributes) })))
+const start = [
+  {
+    shape: "circle",
+    attributes: { cx: 151, cy: 132, r: 52, fill: "red" }
+  },
+  {
+    shape: "circle",
+    attributes: {
+      cx: 101,
+      cy: 120,
+      r: 40,
+      fill: "pink"
+    }
+  },
+  {
+    shape: "circle",
+    attributes: {
+      cx: 601,
+      cy: 420,
+      r: 140,
+      fill: "green"
+    }
+  },
+  {
+    shape: "rect",
+    attributes: {
+      x: 40,
+      y: 320,
+      width: 140,
+      height: 200
+    }
   }
+];
+const defaultValues = {
+  circle: '{"cx":50,"cy":30,"r":10}',
+  rect: '{"x":20,"y":50,"width":40,"height":20}',
+  polygon: '{"points":"10 10 45 15 20 35"}'
+};
+
+const App = () => {
+  const updateShapes = () => {
+    setShapes(
+      shapesControlls.map(i => ({
+        shape: i.shape,
+        attributes: JSON.parse(i.attributes)
+      }))
+    );
+  };
   useEffect( ()=>{
-    if (isUpdate){
+    console.log("RENDER");
+    return () => {
+      console.log("clean-up");
+    };
+  });
+  
+  // const [inputs,setInputs] = useState(circles.map(c=>JSON.stringify(c)));
+  const [shapes, setShapes] = useState(start);
+  const [isUpdate, setIsUpdate] = useState(false);
+  const [newShape, setNewShape] = useState("circle");
+  const [shapesControlls, setShapesControlls] = useState(
+    start.map(el => ({
+      shape: el.shape,
+      attributes: JSON.stringify(el.attributes)
+    }))
+  );
+  useEffect(() => {
+    if (isUpdate) {
       updateShapes();
     }
-    setIsUpdate(false)
-    console.log("RENDER");
-    return ()=>{
-      console.log("clean-up");
-    }
-  })
-  // const [inputs,setInputs] = useState(circles.map(c=>JSON.stringify(c)));
-  const [shapes,setShapes] = useState(start);
-  const [isUpdate,setIsUpdate] =useState(false);
-  const [newShape,setNewShape] = useState("circle");
-  const [shapesControlls,setShapesControlls] = useState(start.map(el=>({shape:el.shape,attributes:JSON.stringify(el.attributes)})));
-  
+    setIsUpdate(false);
+    
+  });
   return (
     <>
-    <svg viewBox="0 0 720 720" className="Svg-view">
-      {shapes.map((shape,i)=>{
-        const ShapeType=shape.shape;
-        return (<ShapeType key={i} {...shape.attributes} />)})}
+      <svg viewBox="0 0 720 720" className="Svg-view">
+        {shapes.map((shape, i) => {
+          const ShapeType = shape.shape;
+          return <ShapeType key={i} {...shape.attributes} />;
+        })}
+      </svg>
+      {/* <button onClick={()=>setInputs([...inputs,JSON.stringify({cx:Math.random()*720,cy:Math.random()*720,r:20+Math.random()*50})])}>Add</button> */}
+      <button onClick={updateShapes}>Update</button>
+      <select
+        value={newShape}
+        onChange={e => {
+          setNewShape(e.target.value);
+        }}
+      >
+        <option>circle</option>
+        <option>rect</option>
+        <option>polygon</option>
+      </select>
+      <button
+        onClick={() => {
+          console.log(newShape);
+          setShapesControlls([
+            ...shapesControlls,
+            { shape: newShape, attributes: defaultValues[newShape] }
+          ]);
+          updateShapes();
+        }}
+      >
+        Add Shape
+      </button>
+      <CodePanel shapes={shapes} />
 
-    </svg>
-    {/* <button onClick={()=>setInputs([...inputs,JSON.stringify({cx:Math.random()*720,cy:Math.random()*720,r:20+Math.random()*50})])}>Add</button> */}
-    <button onClick={updateShapes}>Update</button>
-    <select value={newShape} onChange={(e)=>{ setNewShape(e.target.value)}}>
-      <option>circle</option>
-      <option>rect</option>
-      <option>polygon</option>
-    </select>
-    <button onClick={()=>{console.log(newShape); setShapesControlls([...shapesControlls,{shape:newShape,attributes:defaultValues[newShape]}]);updateShapes(); }}>Add Shape</button>
-    <pre>
-      {JSON.stringify(shapes)}
-    </pre>
-    <div>
-      { shapesControlls.map( (control,ind)=>(
-        <div className="shape-row" key={ind}>
-         <span className="shape-type">{control.shape}</span>
-          <input className="shape-attributes" value={control.attributes} onChange={
-            (e)=>{
-              console.time("map")
-              setShapesControlls(shapesControlls.map( (c,i)=>ind===i?{attributes:e.target.value,shape:c.shape}:c) );
-              console.timeEnd("map")
-              try {
-                JSON.parse(e.target.value);
-                setIsUpdate(true);
-              } catch(e){
-                setIsUpdate(false);
-              }
+      <div>
+        {shapesControlls.map((control, ind) => (
+          <div className="shape-row" key={ind}>
+            <span className="shape-type">{control.shape}</span>
+            <input
+              className="shape-attributes"
+              value={control.attributes}
+              onChange={e => {
+                console.time("map");
+                setShapesControlls(
+                  shapesControlls.map((c, i) =>
+                    ind === i
+                      ? { attributes: e.target.value, shape: c.shape }
+                      : c
+                  )
+                );
+                console.timeEnd("map");
+                try {
+                  JSON.parse(e.target.value);
+                  setIsUpdate(true);
+                } catch (e) {
+                  setIsUpdate(false);
+                }
+              }}
+            />
+            {ind > 0 ? (
+              <button
+                onClick={() => {
+                  let old = shapesControlls[ind - 1];
+                  shapesControlls[ind - 1] = shapesControlls[ind];
+                  shapesControlls[ind] = old;
+                  setShapesControlls(shapesControlls.slice());
+                  updateShapes();
+                }}
+              >
+                up
+              </button>
+            ) : null}
+            {ind < shapesControlls.length - 1 ? (
+              <button
+                onClick={() => {
+                  let old = shapesControlls[ind + 1];
+                  shapesControlls[ind + 1] = shapesControlls[ind];
+                  shapesControlls[ind] = old;
+                  setShapesControlls(shapesControlls.slice());
+                  updateShapes();
+                }}
+              >
+                down
+              </button>
+            ) : null}
+          </div>
+        ))}
+      </div>
 
-            }
-          } />
-          {ind>0?<button onClick={
-            ()=>{
-
-              let old=shapesControlls[ind-1];
-              shapesControlls[ind-1]=shapesControlls[ind];
-              shapesControlls[ind]=old;
-              setShapesControlls(shapesControlls.slice());
-              updateShapes();
-
-            }
-          }>up</button>:null}
-          {ind<shapesControlls.length-1?<button onClick={
-            ()=>{
-              let old=shapesControlls[ind+1];
-              shapesControlls[ind+1]=shapesControlls[ind];
-              shapesControlls[ind]=old;
-              setShapesControlls(shapesControlls.slice());
-              updateShapes();
-            }
-          }>down</button>:null}
-          
-        </div>
-      ) )}
-    </div>
-
-    <div className="interface">
-               </div>
-    <p>Jan</p>
+      <div className="interface" />
+      <p>Jan</p>
     </>
   );
-}
+};
 
 // function App() {
 //   return (

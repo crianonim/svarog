@@ -1,0 +1,9 @@
+.code-panel{
+    border: 1px solid black;
+    padding: 1rem;
+}
+
+.code-content{
+    padding: 1rem;
+    background-color: beige;
+}
