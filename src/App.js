@@ -31,12 +31,17 @@ const start=[
     }
   },
 ]
-  
+const defaultValues={
+  "circle":'{"cx":50,"cy":30,"r":10}',
+  "rect":'{"x":20,"y":50,"width":40,"height":20}',
+  "polygon":'{"points":"10 10 45 15 20 35"}'
+}
 const App = ()=>{
   // const [inputs,setInputs] = useState(circles.map(c=>JSON.stringify(c)));
   const [shapes,setShapes] = useState(start);
   const [newShape,setNewShape] = useState("circle");
   const [shapesControlls,setShapesControlls] = useState(start.map(el=>({shape:el.shape,attributes:JSON.stringify(el.attributes)})));
+  
   return (
     <>
     <svg viewBox="0 0 720 720" className="Svg-view">
@@ -50,23 +55,17 @@ const App = ()=>{
     <select value={newShape} onChange={(e)=>{ setNewShape(e.target.value)}}>
       <option>circle</option>
       <option>rect</option>
+      <option>polygon</option>
     </select>
-    <button onClick={()=>{console.log(newShape); setShapesControlls([...shapesControlls,{shape:newShape,attributes:"{}"}]) }}>Add Shape</button>
+    <button onClick={()=>{console.log(newShape); setShapesControlls([...shapesControlls,{shape:newShape,attributes:defaultValues[newShape]}]) }}>Add Shape</button>
     <pre>
       {JSON.stringify(shapes)}
     </pre>
     <div>
       { shapesControlls.map( (control,ind)=>(
-        <div key={ind}>
-          <select value={control.shape} onChange={
-            (e)=>{
-              setShapesControlls(shapesControlls.map( (c,i)=>ind===i?{attributes:c.attributes,shape:e.target.value}:c) )
-            }
-          }>
-            <option>circle</option>
-            <option>rect</option>
-          </select>
-          <input value={control.attributes} onChange={
+        <div className="shape-row" key={ind}>
+         <span className="shape-type">{control.shape}</span>
+          <input className="shape-attributes" value={control.attributes} onChange={
             (e)=>{
               console.time("map")
               setShapesControlls(shapesControlls.map( (c,i)=>ind===i?{attributes:e.target.value,shape:c.shape}:c) );
@@ -74,6 +73,24 @@ const App = ()=>{
 
             }
           } />
+          {ind>0?<button onClick={
+            ()=>{
+
+              let old=shapesControlls[ind-1];
+              shapesControlls[ind-1]=shapesControlls[ind];
+              shapesControlls[ind]=old;
+              setShapesControlls(shapesControlls.slice());
+            }
+          }>up</button>:null}
+          {ind<shapesControlls.length-1?<button onClick={
+            ()=>{
+              let old=shapesControlls[ind+1];
+              shapesControlls[ind+1]=shapesControlls[ind];
+              shapesControlls[ind]=old;
+              setShapesControlls(shapesControlls.slice());
+            }
+          }>down</button>:null}
+          
         </div>
       ) )}
     </div>
