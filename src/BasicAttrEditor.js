@@ -16,9 +16,10 @@ const BasicAttrEditor=(props)=>{
     const [controls,setControls]=useState(Object.entries(props.attrs));
     const unUsedAttrs=Object.keys(attrsData).filter(key=>controls.every(control=>control[0]!==key));
     const [addAttr,setAddAttr]=useState(unUsedAttrs[0])
-    console.log(unUsedAttrs); 
+    console.log(props.element,unUsedAttrs); 
     return (
         <div className="flex-row">
+	<span>{props.element}</span>
 	<select value={addAttr} onChange={(e)=>{
 	    console.log(e.target.value);
 	setAddAttr(e.target.value);

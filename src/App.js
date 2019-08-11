@@ -72,15 +72,32 @@ const App = () => {
         Add Shape
       </button>
       <CodePanel shapes={ shapes} svgAttrs={svgAttrs}  />
-      <BasicAttrEditor attrs={svgAttrs} changed={(attr)=>{
+      <BasicAttrEditor element='svg' attrs={svgAttrs} changed={(attr)=>{
         setSvgAttrs(attr);
       }}/>
-      <div>
         
-      </div>
-      <div>
+      
+      <div className="shapes-list">
+        {shapes.map ( (shape,ind) => (
+	    	<div className="flex-row">
+		<BasicAttrEditor element={shape.shape} attrs={shape.attributes} changed={(attrs)=>{
+			const nShapes=shapes.slice();
+		    	nShapes[ind].attributes=attrs;
+		   	setShapes(nShapes);
+		    	
+		}} />
+	    	<div>
+	    	<button>Down</button>
+	    	<button>Up</button>
+	    </div>
+	       </div>
+	))}
+	
+	}
         {shapesControlls.map((control, ind) => (
-          <div className="shape-row" key={ind}>
+	    <>
+          
+	    <div className="shape-row" key={ind}>
             <span className="shape-type">{control.shape}</span>
             <input
               className="shape-attributes"
@@ -130,7 +147,9 @@ const App = () => {
               </button>
             ) : null}
           </div>
+	    </>
         ))}
+
       </div>
 
       <div className="interface" />
