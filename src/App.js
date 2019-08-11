@@ -35,6 +35,7 @@ const start=[
 const App = ()=>{
   // const [inputs,setInputs] = useState(circles.map(c=>JSON.stringify(c)));
   const [shapes,setShapes] = useState(start);
+  const [newShape,setNewShape] = useState("circle");
   const [shapesControlls,setShapesControlls] = useState(start.map(el=>({shape:el.shape,attributes:JSON.stringify(el.attributes)})));
   return (
     <>
@@ -46,6 +47,11 @@ const App = ()=>{
     </svg>
     {/* <button onClick={()=>setInputs([...inputs,JSON.stringify({cx:Math.random()*720,cy:Math.random()*720,r:20+Math.random()*50})])}>Add</button> */}
     <button onClick={()=>setShapes(shapesControlls.map(i=>({shape:i.shape,attributes:JSON.parse(i.attributes) })))}>Update</button>
+    <select value={newShape} onChange={(e)=>{ setNewShape(e.target.value)}}>
+      <option>circle</option>
+      <option>rect</option>
+    </select>
+    <button onClick={()=>{console.log(newShape); setShapesControlls([...shapesControlls,{shape:newShape,attributes:"{}"}]) }}>Add Shape</button>
     <pre>
       {JSON.stringify(shapes)}
     </pre>
