@@ -6,14 +6,6 @@ import BasicAttrEditor from "./BasicAttrEditor.js";
 import {start,defaultValues} from "./lib/helper.js";
 
 const App = () => {
-  const updateShapes = () => {
-    setShapes(
-      shapesControlls.map(i => ({
-        shape: i.shape,
-        attributes: JSON.parse(i.attributes)
-      }))
-    );
-  };
   useEffect( ()=>{
     console.log("RENDER");
     return () => {
@@ -21,24 +13,10 @@ const App = () => {
     };
   });
   
-  // const [inputs,setInputs] = useState(circles.map(c=>JSON.stringify(c)));
   const [shapes, setShapes] = useState(start);
   const [isUpdate, setIsUpdate] = useState(false);
   const [newShape, setNewShape] = useState("circle");
   const [svgAttrs,setSvgAttrs] = useState({viewBox:"0 0 720 720"});
-  const [shapesControlls, setShapesControlls] = useState(
-    start.map(el => ({
-      shape: el.shape,
-      attributes: JSON.stringify(el.attributes)
-    }))
-  );
-  useEffect(() => {
-    if (isUpdate) {
-      updateShapes();
-    }
-    setIsUpdate(false);
-    
-  });
   return (
     <>
       <svg {...svgAttrs} className="Svg-view">
@@ -47,8 +25,6 @@ const App = () => {
           return <ShapeType key={i} {...shape.attributes} />;
         })}
       </svg>
-      {/* <button onClick={()=>setInputs([...inputs,JSON.stringify({cx:Math.random()*720,cy:Math.random()*720,r:20+Math.random()*50})])}>Add</button> */}
-      <button onClick={updateShapes}>Update</button>
       <select
         value={newShape}
         onChange={e => {
@@ -62,11 +38,10 @@ const App = () => {
       <button
         onClick={() => {
           console.log(newShape);
-          setShapesControlls([
-            ...shapesControlls,
-            { shape: newShape, attributes: defaultValues[newShape] }
+          setShapes([
+            ...shapes,
+            { shape: newShape, attributes: defaultValues[newShape],id:Date.now() }
           ]);
-          updateShapes();
         }}
       >
         Add Shape
@@ -76,107 +51,53 @@ const App = () => {
         setSvgAttrs(attr);
       }}/>
         
-      
+
       <div className="shapes-list">
-        {shapes.map ( (shape,ind) => (
-	    	<div className="flex-row">
-		<BasicAttrEditor element={shape.shape} attrs={shape.attributes} changed={(attrs)=>{
-			const nShapes=shapes.slice();
-		    	nShapes[ind].attributes=attrs;
-		   	setShapes(nShapes);
-		    	
-		}} />
-	    	<div>
-	    	<button>Down</button>
-	    	<button>Up</button>
-	    </div>
-	       </div>
-	))}
-	
-	}
-        {shapesControlls.map((control, ind) => (
-	    <>
-          
-	    <div className="shape-row" key={ind}>
-            <span className="shape-type">{control.shape}</span>
-            <input
-              className="shape-attributes"
-              value={control.attributes}
-              onChange={e => {
-                console.time("map");
-                setShapesControlls(
-                  shapesControlls.map((c, i) =>
-                    ind === i
-                      ? { attributes: e.target.value, shape: c.shape }
-                      : c
-                  )
-                );
-                console.timeEnd("map");
-                try {
-                  JSON.parse(e.target.value);
-                  setIsUpdate(true);
-                } catch (e) {
-                  setIsUpdate(false);
-                }
-              }}
-            />
-            {ind > 0 ? (
-              <button
-                onClick={() => {
-                  let old = shapesControlls[ind - 1];
-                  shapesControlls[ind - 1] = shapesControlls[ind];
-                  shapesControlls[ind] = old;
-                  setShapesControlls(shapesControlls.slice());
-                  updateShapes();
-                }}
-              >
-                up
-              </button>
-            ) : null}
-            {ind < shapesControlls.length - 1 ? (
-              <button
-                onClick={() => {
-                  let old = shapesControlls[ind + 1];
-                  shapesControlls[ind + 1] = shapesControlls[ind];
-                  shapesControlls[ind] = old;
-                  setShapesControlls(shapesControlls.slice());
-                  updateShapes();
-                }}
-              >
-                down
-              </button>
-            ) : null}
-          </div>
-	    </>
-        ))}
+      {shapes.map ( (shape,ind) => (
+	  <div key={shape.id} className="flex-row">
+	  <BasicAttrEditor element={shape.shape} attrs={shape.attributes} changed={(attrs)=>{
+	      const nShapes=shapes.slice();
+	      nShapes[ind].attributes=attrs;
+	      setShapes(nShapes);
 
-      </div>
+	  }} />
+	  <div>
 
-      <div className="interface" />
-      <p>Jan</p>
+	  {ind > 0 ? (
+	      <button
+	      onClick={() => {
+		  let old = shapes[ind - 1];
+		  shapes[ind - 1] = shapes[ind];
+		  shapes[ind] = old;
+		  setShapes(shapes.slice());
+	      }}
+	      >
+	      up
+	      </button>
+	  ) : null}
+	  {ind < shapes.length - 1 ? (
+	      <button
+	      onClick={() => {
+		  let old = shapes[ind + 1];
+		  shapes[ind + 1] = shapes[ind];
+		  shapes[ind] = old;
+		  setShapes(shapes.slice());
+	      }}
+	      >
+	      down
+	      </button>
+	  ) : null}
+	  </div>
+
+
+	  </div>
+      ))}
+
+}
+              </div>
+
     </>
   );
 };
-
-// function App() {
-//   return (
-//     <div className="App">
-//       <header className="App-header">
-//         <img src={logo} className="App-logo" alt="logo" />
-//         <p>
-//           Edit <code>src/App.js</code> and save to reload.
-//         </p>
-//         <a
-//           className="App-link"
-//           href="https://reactjs.org"
-//           target="_blank"
-//           rel="noopener noreferrer"
-//         >
-//           Learn React
-//         </a>
-//       </header>
-//     </div>
-//   );
-// }
 
 export default App;
