@@ -1,8 +1,11 @@
-import React,{ useState }  from 'react';
+import React,{ useState, useEffect }  from 'react';
 // import logo from './logo.svg';
 import './App.css';
-
 const start=[
+  {
+    shape:"circle",
+    attributes:{"cx":151,"cy":132,"r":52,"fill":"red"}
+  },
   {
     shape:"circle",
     attributes:{
@@ -36,7 +39,17 @@ const defaultValues={
   "rect":'{"x":20,"y":50,"width":40,"height":20}',
   "polygon":'{"points":"10 10 45 15 20 35"}'
 }
+
 const App = ()=>{
+  const updateShapes=()=>{
+    setShapes(shapesControlls.map(i=>({shape:i.shape,attributes:JSON.parse(i.attributes) })))
+  }
+  useEffect( ()=>{
+    console.log("RENDER");
+    return ()=>{
+      console.log("clean-up");
+    }
+  })
   // const [inputs,setInputs] = useState(circles.map(c=>JSON.stringify(c)));
   const [shapes,setShapes] = useState(start);
   const [newShape,setNewShape] = useState("circle");
@@ -51,7 +64,7 @@ const App = ()=>{
 
     </svg>
     {/* <button onClick={()=>setInputs([...inputs,JSON.stringify({cx:Math.random()*720,cy:Math.random()*720,r:20+Math.random()*50})])}>Add</button> */}
-    <button onClick={()=>setShapes(shapesControlls.map(i=>({shape:i.shape,attributes:JSON.parse(i.attributes) })))}>Update</button>
+    <button onClick={updateShapes}>Update</button>
     <select value={newShape} onChange={(e)=>{ setNewShape(e.target.value)}}>
       <option>circle</option>
       <option>rect</option>
@@ -80,6 +93,8 @@ const App = ()=>{
               shapesControlls[ind-1]=shapesControlls[ind];
               shapesControlls[ind]=old;
               setShapesControlls(shapesControlls.slice());
+              updateShapes();
+
             }
           }>up</button>:null}
           {ind<shapesControlls.length-1?<button onClick={
@@ -88,6 +103,7 @@ const App = ()=>{
               shapesControlls[ind+1]=shapesControlls[ind];
               shapesControlls[ind]=old;
               setShapesControlls(shapesControlls.slice());
+              updateShapes();
             }
           }>down</button>:null}
           
