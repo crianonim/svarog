@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 // import logo from './logo.svg';
 import "./App.css";
 import CodePanel from "./CodePanel.js";
+import BasicAttrEditor from "./BasicAttrEditor.js";
 import {start,defaultValues} from "./lib/helper.js";
 
 const App = () => {
@@ -25,7 +26,6 @@ const App = () => {
   const [isUpdate, setIsUpdate] = useState(false);
   const [newShape, setNewShape] = useState("circle");
   const [svgAttrs,setSvgAttrs] = useState({viewBox:"0 0 720 720"});
-  const [svgAttrsControl,setSvgAttrsControl]=useState(JSON.stringify(svgAttrs));
   const [shapesControlls, setShapesControlls] = useState(
     start.map(el => ({
       shape: el.shape,
@@ -72,20 +72,11 @@ const App = () => {
         Add Shape
       </button>
       <CodePanel shapes={ shapes} svgAttrs={svgAttrs}  />
-      <div className="shape-row">
-        <span className="shape-type">svg</span>
-        <input
-              className="shape-attributes"
-              value={svgAttrsControl}
-              onChange={e => {
-                setSvgAttrsControl(e.target.value);
-                try {
-                  const value=JSON.parse(e.target.value);
-                  setSvgAttrs(value);
-                } catch(err){
-
-                }
-              }} />
+      <BasicAttrEditor svgAttrs={svgAttrs} changed={(attr)=>{
+        setSvgAttrs(attr);
+      }}/>
+      <div>
+        
       </div>
       <div>
         {shapesControlls.map((control, ind) => (
