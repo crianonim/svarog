@@ -64,8 +64,10 @@ const App = () => {
       <div className="shapes-list">
         {shapes.map((shape, ind) => (
           <div key={shape.id} className={"flex-row " + (selectedShape === shape.id ? "selected-shape":"")} >
+            <button onClick={()=>{
+              setShapes(shapes.filter(el=>el!==shape));
+            }}>x</button>
             <BasicAttrEditor
-              
               element={shape.shape}
               attrs={shape.attributes}
               changed={attrs => {
@@ -101,7 +103,7 @@ const App = () => {
             </div>
           </div>
         ))}
-        }
+        
       </div>
     </>
   );
