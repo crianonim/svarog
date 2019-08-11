@@ -62,7 +62,10 @@ const App = ()=>{
           </select>
           <input value={control.attributes} onChange={
             (e)=>{
-              setShapesControlls(shapesControlls.map( (c,i)=>ind===i?{attributes:e.target.value,shape:c.shape}:c) )
+              console.time("map")
+              setShapesControlls(shapesControlls.map( (c,i)=>ind===i?{attributes:e.target.value,shape:c.shape}:c) );
+              console.timeEnd("map")
+
             }
           } />
         </div>
