@@ -7,7 +7,7 @@ import { start, defaultValues } from "./lib/helper.js";
 
 const App = () => {
   useEffect(() => {
-    console.log("RENDER");
+    console.log("RENDER",selectedShape);
     return () => {
       console.log("clean-up");
     };
@@ -16,13 +16,14 @@ const App = () => {
   const [shapes, setShapes] = useState(start);
   const [newShape, setNewShape] = useState("circle");
   const [svgAttrs, setSvgAttrs] = useState({ viewBox: "0 0 720 720" });
+  const [selectedShape, setSelectedShape] = useState(null);
   return (
     <>
       <svg {...svgAttrs} className="Svg-view">
         {shapes.map((shape, i) => {
           const ShapeType = shape.shape;
-          return <ShapeType onClick={(e)=>{
-            console.log(e.target);
+          return <ShapeType data-id={shape.id} onClick={(e)=>{
+            setSelectedShape(shape.id)
           }} key={i} {...shape.attributes} />;
         })}
       </svg>
@@ -62,8 +63,9 @@ const App = () => {
 
       <div className="shapes-list">
         {shapes.map((shape, ind) => (
-          <div key={shape.id} className="flex-row">
+          <div key={shape.id} className={"flex-row " + (selectedShape === shape.id ? "selected-shape":"")} >
             <BasicAttrEditor
+              
               element={shape.shape}
               attrs={shape.attributes}
               changed={attrs => {
