@@ -72,7 +72,7 @@ const App = () => {
         Add Shape
       </button>
       <CodePanel shapes={ shapes} svgAttrs={svgAttrs}  />
-      <BasicAttrEditor svgAttrs={svgAttrs} changed={(attr)=>{
+      <BasicAttrEditor attrs={svgAttrs} changed={(attr)=>{
         setSvgAttrs(attr);
       }}/>
       <div>
