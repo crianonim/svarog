@@ -45,6 +45,10 @@ const App = ()=>{
     setShapes(shapesControlls.map(i=>({shape:i.shape,attributes:JSON.parse(i.attributes) })))
   }
   useEffect( ()=>{
+    if (isUpdate){
+      updateShapes();
+    }
+    setIsUpdate(false)
     console.log("RENDER");
     return ()=>{
       console.log("clean-up");
@@ -52,6 +56,7 @@ const App = ()=>{
   })
   // const [inputs,setInputs] = useState(circles.map(c=>JSON.stringify(c)));
   const [shapes,setShapes] = useState(start);
+  const [isUpdate,setIsUpdate] =useState(false);
   const [newShape,setNewShape] = useState("circle");
   const [shapesControlls,setShapesControlls] = useState(start.map(el=>({shape:el.shape,attributes:JSON.stringify(el.attributes)})));
   
@@ -70,7 +75,7 @@ const App = ()=>{
       <option>rect</option>
       <option>polygon</option>
     </select>
-    <button onClick={()=>{console.log(newShape); setShapesControlls([...shapesControlls,{shape:newShape,attributes:defaultValues[newShape]}]) }}>Add Shape</button>
+    <button onClick={()=>{console.log(newShape); setShapesControlls([...shapesControlls,{shape:newShape,attributes:defaultValues[newShape]}]);updateShapes(); }}>Add Shape</button>
     <pre>
       {JSON.stringify(shapes)}
     </pre>
@@ -83,6 +88,12 @@ const App = ()=>{
               console.time("map")
               setShapesControlls(shapesControlls.map( (c,i)=>ind===i?{attributes:e.target.value,shape:c.shape}:c) );
               console.timeEnd("map")
+              try {
+                JSON.parse(e.target.value);
+                setIsUpdate(true);
+              } catch(e){
+                setIsUpdate(false);
+              }
 
             }
           } />
