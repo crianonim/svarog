@@ -29,6 +29,7 @@
 .shape-row {
   display: flex;
 }
+
 .shape-type {
   width: 10rem;
 }
@@ -37,7 +38,16 @@
 }
 .flex-row {
   display: flex;
+}
+.flex-wrap {
   flex-wrap:wrap;
+}
+.attr-wrapper > * {
+ margin:auto 5px;
+}
+.attr-pair > * {
+ margin:auto 2px;
+
 }
 @keyframes App-logo-spin {
   from {
