@@ -25,6 +25,7 @@ const App = () => {
   const [isUpdate, setIsUpdate] = useState(false);
   const [newShape, setNewShape] = useState("circle");
   const [svgAttrs,setSvgAttrs] = useState({viewBox:"0 0 720 720"});
+  const [svgAttrsControl,setSvgAttrsControl]=useState(JSON.stringify(svgAttrs));
   const [shapesControlls, setShapesControlls] = useState(
     start.map(el => ({
       shape: el.shape,
@@ -75,8 +76,9 @@ const App = () => {
         <span className="shape-type">svg</span>
         <input
               className="shape-attributes"
-              value={JSON.stringify(svgAttrs)}
+              value={svgAttrsControl}
               onChange={e => {
+                setSvgAttrsControl(e.target.value);
                 try {
                   const value=JSON.parse(e.target.value);
                   setSvgAttrs(value);
