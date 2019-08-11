@@ -1,18 +1,29 @@
 import React from "react";
 import "./CodePanel.css";
+
+const attr2string = attrs => {
+  return Object.entries(attrs)
+    .map(([key, value]) => `${key}="${value}"`)
+    .join(" ");
+};
 const CodePanel = props => {
-  const shapes = props.shapes
+  const svg = `
+<svg ${attr2string(props.svgAttrs)}> 
+${props.shapes
     .map(shape => {
-      const attrS = Object.entries(shape.attributes)
-        .map(([key, value]) => `${key}:"${value}"`)
-        .join(" ");
-      return `<${shape.shape} ${attrS}/>`;
+      const attrS = attr2string(shape.attributes);
+      return ` <${shape.shape} ${attrS}/>`;
     })
-    .join("\n");
+    .join("\n")}
+</svg>
+  `;
+  
   return (
     <div className="code-panel">
-        <h3>Source code:</h3>
-      <pre className="code-content">{shapes}</pre>
+      <h3>Source code:</h3>
+      <pre className="code-content">
+        {svg}
+      </pre>
     </div>
   );
 };

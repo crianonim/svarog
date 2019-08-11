@@ -62,6 +62,7 @@ const App = () => {
   const [shapes, setShapes] = useState(start);
   const [isUpdate, setIsUpdate] = useState(false);
   const [newShape, setNewShape] = useState("circle");
+  const [svgAttrs,setSvgAttrs] = useState({viewBox:"0 0 720 720"});
   const [shapesControlls, setShapesControlls] = useState(
     start.map(el => ({
       shape: el.shape,
@@ -77,7 +78,7 @@ const App = () => {
   });
   return (
     <>
-      <svg viewBox="0 0 720 720" className="Svg-view">
+      <svg {...svgAttrs} className="Svg-view">
         {shapes.map((shape, i) => {
           const ShapeType = shape.shape;
           return <ShapeType key={i} {...shape.attributes} />;
@@ -107,7 +108,7 @@ const App = () => {
       >
         Add Shape
       </button>
-      <CodePanel shapes={shapes} />
+      <CodePanel shapes={ shapes} svgAttrs={svgAttrs}  />
 
       <div>
         {shapesControlls.map((control, ind) => (
