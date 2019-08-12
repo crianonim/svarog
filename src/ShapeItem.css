@@ -1,0 +1,11 @@
+.shape-item:first-child .move-up-button {
+    visibility: hidden;
+}
+
+.shape-item:last-child .move-down-button {
+    visibility: hidden;
+}
+
+.selected-shape {
+    background: #61dafb;
+}

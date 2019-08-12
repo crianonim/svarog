@@ -48,9 +48,7 @@
 .attr-pair > * {
  margin:auto 2px;
 }
-.selected-shape {
-  background: #61dafb;
-}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

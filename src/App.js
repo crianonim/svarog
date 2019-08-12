@@ -4,6 +4,7 @@ import "./App.css";
 import CodePanel from "./CodePanel.js";
 import BasicAttrEditor from "./BasicAttrEditor.js";
 import { start, defaultValues } from "./lib/helper.js";
+import ShapeItem from "./ShapeItem";
 
 const App = () => {
   useEffect(() => {
@@ -12,11 +13,22 @@ const App = () => {
       console.log("clean-up");
     };
   });
-
+   
+  // state
   const [shapes, setShapes] = useState(start);
   const [newShape, setNewShape] = useState("circle");
   const [svgAttrs, setSvgAttrs] = useState({ viewBox: "0 0 720 720" });
   const [selectedShape, setSelectedShape] = useState(null);
+
+  // helpers
+  const moveShape = (step) => (movedShape) => {
+    const index=shapes.findIndex((sh)=>sh===movedShape);
+          const old=shapes[index+step];
+          shapes[index+step]=movedShape;
+          shapes[index]=old;
+          setShapes(shapes.slice())
+  }
+
   return (
     <>
       <svg {...svgAttrs} className="Svg-view">
@@ -49,9 +61,7 @@ const App = () => {
             }
           ]);
         }}
-      >
-        Add Shape
-      </button>
+      >Add Shape</button>
       <CodePanel shapes={shapes} svgAttrs={svgAttrs} />
       <BasicAttrEditor
         element="svg"
@@ -62,46 +72,17 @@ const App = () => {
       />
 
       <div className="shapes-list">
-        {shapes.map((shape, ind) => (
-          <div key={shape.id} className={"flex-row " + (selectedShape === shape.id ? "selected-shape":"")} >
-            <BasicAttrEditor
-              
-              element={shape.shape}
-              attrs={shape.attributes}
-              changed={attrs => {
-                shapes[ind].attributes = attrs;
-                setShapes(shapes.slice());
-              }}
-            />
-            <div>
-              {ind > 0 ? (
-                <button
-                  onClick={() => {
-                    let old = shapes[ind - 1];
-                    shapes[ind - 1] = shapes[ind];
-                    shapes[ind] = old;
-                    setShapes(shapes.slice());
-                  }}
-                >
-                  up
-                </button>
-              ) : null}
-              {ind < shapes.length - 1 ? (
-                <button
-                  onClick={() => {
-                    let old = shapes[ind + 1];
-                    shapes[ind + 1] = shapes[ind];
-                    shapes[ind] = old;
-                    setShapes(shapes.slice());
-                  }}
-                >
-                  down
-                </button>
-              ) : null}
-            </div>
-          </div>
-        ))}
-        }
+      {shapes.map( shape => (
+        
+        <ShapeItem key={shape.id} shape={shape} selected={selectedShape===shape.id}
+        changed={(changedShape)=>{
+          shapes[shapes.findIndex((sh)=>sh===changedShape)]=changedShape;
+          setShapes(shapes.slice());
+        }}
+        shapeUp={moveShape(-1)}
+        shapeDown={moveShape(1)}
+        ></ShapeItem>
+      ))}
       </div>
     </>
   );
