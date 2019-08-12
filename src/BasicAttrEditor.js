@@ -19,7 +19,7 @@ const BasicAttrEditor = props => {
     controls.every(control => control[0] !== key)
   );
   const [addAttr, setAddAttr] = useState(unUsedAttrs[0]);
-  console.log(props.element, unUsedAttrs);
+  // console.log(props.element, unUsedAttrs);
   return (
     <div className="flex-row flex-wrap attr-wrapper">
       <span>{props.element}</span>

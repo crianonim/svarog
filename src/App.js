@@ -5,10 +5,11 @@ import CodePanel from "./CodePanel.js";
 import BasicAttrEditor from "./BasicAttrEditor.js";
 import { start, defaultValues } from "./lib/helper.js";
 import ShapeItem from "./ShapeItem";
+import InputTextArea from './InputTextArea';
 
 const App = () => {
   useEffect(() => {
-    console.log("RENDER",selectedShape);
+    console.log("RENDER",{selectedShape});
     return () => {
       console.log("clean-up");
     };
@@ -70,19 +71,7 @@ const App = () => {
           setSvgAttrs(attr);
         }}
       />
-      <textarea></textarea>
-      <button onClick={()=>{
-        let id=1;
-        const fakeDOM=document.createElement('div');
-        fakeDOM.innerHTML=document.querySelector('textarea').value;
-        const svg=fakeDOM.children[0];
-        const shapess=Array.from(svg.children).map(child=>{
-          const atts=Object.fromEntries(child.getAttributeNames().map(att=>[att,child.getAttribute(att)]));
-          return {id:id++,attributes:atts,shape:child.tagName}
-        })
-        setShapes(shapess);
-      }
-      }>parse</button>
+     <InputTextArea change={setShapes} />
       <div className="shapes-list">
       {shapes.map( shape => (
         <div key={shape.id} className={"flex-row " +(shape.id===selectedShape?"selected-shape":"")}>
