@@ -72,15 +72,15 @@ const App = () => {
       />
       <textarea></textarea>
       <button onClick={()=>{
-        console.log(shapes)
+        let id=1;
         const fakeDOM=document.createElement('div');
         fakeDOM.innerHTML=document.querySelector('textarea').value;
         const svg=fakeDOM.children[0];
-        Array.from(svg.children).map(child=>{
+        const shapess=Array.from(svg.children).map(child=>{
           const atts=Object.fromEntries(child.getAttributeNames().map(att=>[att,child.getAttribute(att)]));
-          console.log(atts)
+          return {id:id++,attributes:atts,shape:child.tagName}
         })
-        console.log(svg.attributes)
+        setShapes(shapess);
       }
       }>parse</button>
       <div className="shapes-list">
