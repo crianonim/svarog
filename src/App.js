@@ -70,14 +70,26 @@ const App = () => {
           setSvgAttrs(attr);
         }}
       />
-
+      <textarea></textarea>
+      <button onClick={()=>{
+        console.log(shapes)
+        const fakeDOM=document.createElement('div');
+        fakeDOM.innerHTML=document.querySelector('textarea').value;
+        const svg=fakeDOM.children[0];
+        Array.from(svg.children).map(child=>{
+          const atts=Object.fromEntries(child.getAttributeNames().map(att=>[att,child.getAttribute(att)]));
+          console.log(atts)
+        })
+        console.log(svg.attributes)
+      }
+      }>parse</button>
       <div className="shapes-list">
       {shapes.map( shape => (
-        <div className={"flex-row " +(shape.id===selectedShape?"selected-shape":"")}>
+        <div key={shape.id} className={"flex-row " +(shape.id===selectedShape?"selected-shape":"")}>
         <button onClick={()=>{
           setShapes(shapes.filter(el=>el!==shape));
         }}>x</button>
-        <ShapeItem key={shape.id} shape={shape} selected={selectedShape===shape.id}
+        <ShapeItem  shape={shape} selected={selectedShape===shape.id}
         changed={(changedShape)=>{
           shapes[shapes.findIndex((sh)=>sh===changedShape)]=changedShape;
           setShapes(shapes.slice());
