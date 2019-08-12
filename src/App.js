@@ -73,7 +73,10 @@ const App = () => {
 
       <div className="shapes-list">
       {shapes.map( shape => (
-        
+        <div className={"flex-row " +(shape.id===selectedShape?"selected-shape":"")}>
+        <button onClick={()=>{
+          setShapes(shapes.filter(el=>el!==shape));
+        }}>x</button>
         <ShapeItem key={shape.id} shape={shape} selected={selectedShape===shape.id}
         changed={(changedShape)=>{
           shapes[shapes.findIndex((sh)=>sh===changedShape)]=changedShape;
@@ -82,6 +85,7 @@ const App = () => {
         shapeUp={moveShape(-1)}
         shapeDown={moveShape(1)}
         ></ShapeItem>
+        </div>
       ))}
       </div>
     </>

@@ -5,7 +5,7 @@ import './ShapeItem.css';
 const ShapeItem = (props) => {
     const shape = props.shape;
     return (
-     <div key={shape.id} className={"flex-row shape-item "+(props.selected?"selected-shape":"")} >
+     <div key={shape.id} className="flex-row shape-item " >
         <BasicAttrEditor
           element={shape.shape}
           attrs={shape.attributes}
