@@ -15,6 +15,11 @@ const ShapeItem = (props) => {
           }}
         />
         <div className="move-up-down-buttons">
+          <button onClick={()=>{
+            props.duplicate(shape);
+          }} className="dup-shape-button">
+            *
+          </button>
             <button className="move-up-button"
               onClick={() => {
                   props.shapeUp(shape);

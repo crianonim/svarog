@@ -64,7 +64,12 @@ const App = () => {
         <button onClick={()=>{
           setShapes(shapes.filter(el=>el!==shape));
         }}>x</button>
-        <ShapeItem  shape={shape} selected={selectedShape===shape.id}
+        <ShapeItem  shape={shape} duplicate={(shape)=>{
+          const dup=Object.assign({},shape);
+          dup.id=Date.now();
+          let index=shapes.findIndex(el=>el===shape);
+          setShapes([...shapes.slice(0,index+1),dup,...shapes.slice(index+1)]);
+        }} selected={selectedShape===shape.id}
         changed={(changedShape)=>{
           shapes[shapes.findIndex((sh)=>sh===changedShape)]=changedShape;
           setShapes(shapes.slice());
