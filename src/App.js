@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
-// import logo from './logo.svg';
+import { start, defaultValues } from "./lib/helper.js";
 import "./App.css";
+
 import CodePanel from "./CodePanel.js";
 import BasicAttrEditor from "./BasicAttrEditor.js";
-import { start, defaultValues } from "./lib/helper.js";
 import ShapeItem from "./ShapeItem";
 import InputTextArea from './InputTextArea';
+import SvgView from './SvgView.js';
 
 const App = () => {
   useEffect(() => {
@@ -32,14 +33,8 @@ const App = () => {
 
   return (
     <>
-      <svg {...svgAttrs} className="Svg-view">
-        {shapes.map((shape, i) => {
-          const ShapeType = shape.shape;
-          return <ShapeType data-id={shape.id} onClick={(e)=>{
-            setSelectedShape(shape.id)
-          }} key={i} {...shape.attributes} />;
-        })}
-      </svg>
+      <SvgView shapes={shapes} attrs={svgAttrs} setSelectedShape={setSelectedShape}/>
+    
       <select
         value={newShape}
         onChange={e => {
