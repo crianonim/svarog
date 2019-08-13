@@ -33,15 +33,8 @@ const App = () => {
 
   return (
     <>
-      <SvgView shapes={shapes} attrs={svgAttrs} />
-      <svg {...svgAttrs} className="Svg-view">
-        {shapes.map((shape, i) => {
-          const ShapeType = shape.shape;
-          return <ShapeType data-id={shape.id} onClick={(e)=>{
-            setSelectedShape(shape.id)
-          }} key={i} {...shape.attributes} />;
-        })}
-      </svg>
+      <SvgView shapes={shapes} attrs={svgAttrs} setSelectedShape={setSelectedShape}/>
+    
       <select
         value={newShape}
         onChange={e => {
