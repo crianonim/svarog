@@ -20,7 +20,7 @@ ${props.shapes
   
   return (
     <div className="code-panel">
-      <h3>Source code:</h3>
+      <h3 className="header">Source code:</h3>
       <pre className="code-content">
         {svg}
       </pre>

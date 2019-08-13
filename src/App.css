@@ -1,4 +1,7 @@
-
+h1 {
+  font-family: "Saira Stencil One", cursive;
+  text-transform: uppercase;
+}
 
 .flex-column {
   display: flex;

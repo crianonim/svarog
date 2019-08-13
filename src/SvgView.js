@@ -11,7 +11,7 @@ const SvgView = (props) => {
     return (
         <div className="svg-display">
             <div className="svg-zoom-control flex-row">
-                Zoom:
+                <span className="header">Zoom:</span>
                 <label>
                   <input type="radio" checked={zoom===100} onChange={setZoomHandler(100)} name="zoom-radios" />
                   100

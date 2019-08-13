@@ -32,7 +32,11 @@ const App = () => {
   }
 
   return (
-    <><div className="flex-row">
+    <>
+    <header>
+      <h1>Svarog</h1>
+    </header>
+    <div className="flex-row">
 
       <SvgView shapes={shapes} attrs={svgAttrs} setSelectedShape={setSelectedShape}/>
      <div className="flex-column flex-grow">
