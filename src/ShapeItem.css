@@ -1,8 +1,11 @@
-.shape-item:first-child .move-up-button {
+.shapes-list  > div:first-of-type .move-up-button {
     visibility: hidden;
+    /* background-color: red; */
+
 }
 
-.shape-item:last-child .move-down-button {
+.shapes-list > div:last-of-type .move-down-button   {
+    /* background-color: aquamarine; */
     visibility: hidden;
 }
 
