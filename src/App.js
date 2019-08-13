@@ -7,6 +7,7 @@ import BasicAttrEditor from "./BasicAttrEditor.js";
 import ShapeItem from "./ShapeItem";
 import InputTextArea from './InputTextArea';
 import SvgView from './SvgView.js';
+import AddShape from './AddShape.js';
 
 const App = () => {
   useEffect(() => {
@@ -18,7 +19,6 @@ const App = () => {
    
   // state
   const [shapes, setShapes] = useState(start);
-  const [newShape, setNewShape] = useState("circle");
   const [svgAttrs, setSvgAttrs] = useState({ viewBox: "0 0 720 720" });
   const [selectedShape, setSelectedShape] = useState(null);
 
@@ -34,30 +34,9 @@ const App = () => {
   return (
     <>
       <SvgView shapes={shapes} attrs={svgAttrs} setSelectedShape={setSelectedShape}/>
-    
-      <select
-        value={newShape}
-        onChange={e => {
-          setNewShape(e.target.value);
-        }}
-      >
-        <option>circle</option>
-        <option>rect</option>
-        <option>polygon</option>
-      </select>
-      <button
-        onClick={() => {
-          console.log(newShape);
-          setShapes([
-            ...shapes,
-            {
-              shape: newShape,
-              attributes: defaultValues[newShape],
-              id: Date.now()
-            }
-          ]);
-        }}
-      >Add Shape</button>
+      <AddShape addShape={(shape)=>{
+        setShapes([...shapes,{shape,attributes:defaultValues[shape],id:Date.now()}])
+      }} />
       <CodePanel shapes={shapes} svgAttrs={svgAttrs} />
       <BasicAttrEditor
         element="svg"
