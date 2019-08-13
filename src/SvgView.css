@@ -1,5 +1,8 @@
 .Svg-view {
     width:200px;
-    padding: 1rem;
     border: 1px solid grey;
    }
+.svg-display {
+    border: 1px solid black;
+    padding: 1rem;
+}

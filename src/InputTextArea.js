@@ -3,7 +3,7 @@ import './InputTextArea.css';
 
 const InputTextArea = (props) => {
     return (
-        <>
+        <div className="flex-column  margined">
          <textarea className="parse-input-ta"></textarea>
          <button onClick={()=>{
          let id=1;
@@ -17,7 +17,7 @@ const InputTextArea = (props) => {
         props.change(shapes);
       }
       }>parse</button>
-        </>
+        </div>
     )
 }
 

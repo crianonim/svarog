@@ -7,6 +7,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+#root {
+margin:2rem 5rem;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
@@ -15,8 +19,13 @@ code {
 .header {
   font-family: "Oswald", sans-serif;
 }
-
-button {
+.bordered {
+  border: 1px solid black;
+}
+.margined {
+  margin:1px;
+}
+button, select, input {
   background: none;
   border: 1px solid black;
   font-family: "Oswald", sans-serif;
@@ -26,4 +35,9 @@ button {
 button:hover {
   background: black;
   color:white;
+}
+
+input {
+padding: 1px;
+margin: 1px;
 }

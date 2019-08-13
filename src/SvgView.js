@@ -9,9 +9,11 @@ const SvgView = (props) => {
 
     const setZoomHandler = zoom => () => setZoom(zoom);
     return (
-        <div className="svg-display">
+        <div className="svg-display margined">
             <div className="svg-zoom-control flex-row">
-                <span className="header">Zoom:</span>
+                {/* <span className="header">Zoom:</span> */}
+                <span >Zoom:</span>
+
                 <label>
                   <input type="radio" checked={zoom===100} onChange={setZoomHandler(100)} name="zoom-radios" />
                   100

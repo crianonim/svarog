@@ -2,7 +2,9 @@ h1 {
   font-family: "Saira Stencil One", cursive;
   text-transform: uppercase;
 }
-
+.svg-data {
+  padding: 1rem;
+}
 .flex-column {
   display: flex;
   flex-direction: column;

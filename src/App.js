@@ -39,22 +39,25 @@ const App = () => {
     <div className="flex-row">
 
       <SvgView shapes={shapes} attrs={svgAttrs} setSelectedShape={setSelectedShape}/>
-     <div className="flex-column flex-grow">
+     <div className="flex-column flex-grow bordered margined">
       <CodePanel shapes={shapes} svgAttrs={svgAttrs} />
       <InputTextArea change={setShapes} />
      </div>
     </div>
+    <div className="svg-data margined bordered">
+
       <BasicAttrEditor
         element="svg"
         attrs={svgAttrs}
         changed={attr => {
           setSvgAttrs(attr);
         }}
-      />
+        />
     
      <AddShape addShape={(shape)=>{
-        setShapes([...shapes,{shape,attributes:defaultValues[shape],id:Date.now()}])
+       setShapes([...shapes,{shape,attributes:defaultValues[shape],id:Date.now()}])
       }} />
+
       <div className="shapes-list">
       {shapes.map( shape => (
         <div key={shape.id} className={"flex-row " +(shape.id===selectedShape?"selected-shape":"")}>
@@ -71,6 +74,7 @@ const App = () => {
         ></ShapeItem>
         </div>
       ))}
+       </div>
       </div>
     </>
   );
