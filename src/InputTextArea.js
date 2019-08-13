@@ -17,6 +17,7 @@ const InputTextArea = (props) => {
         props.change(shapes);
       }
       }>parse</button>
+      
         </div>
     )
 }

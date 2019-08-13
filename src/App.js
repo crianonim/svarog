@@ -30,7 +30,7 @@ const App = () => {
           shapes[index]=old;
           setShapes(shapes.slice())
   }
-
+  
   return (
     <>
     <header>
@@ -42,6 +42,17 @@ const App = () => {
      <div className="flex-column flex-grow bordered margined">
       <CodePanel shapes={shapes} svgAttrs={svgAttrs} />
       <InputTextArea change={setShapes} />
+      <div>
+        <button onClick={ ()=>{
+          localStorage.setItem("save",JSON.stringify({attributes:svgAttrs,shapes}));
+         }
+        }>Save</button>
+        <button onClick={()=>{
+          const obj=JSON.parse(localStorage.getItem("save"));
+          setShapes(obj.shapes);
+          setSvgAttrs(obj.attributes);
+        }}>Load</button>
+      </div>
      </div>
     </div>
     <div className="svg-data margined bordered">
