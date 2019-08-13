@@ -32,10 +32,14 @@ const App = () => {
   }
 
   return (
-    <>
+    <><div className="flex-row">
+
       <SvgView shapes={shapes} attrs={svgAttrs} setSelectedShape={setSelectedShape}/>
-     
+     <div className="flex-column flex-grow">
       <CodePanel shapes={shapes} svgAttrs={svgAttrs} />
+      <InputTextArea change={setShapes} />
+     </div>
+    </div>
       <BasicAttrEditor
         element="svg"
         attrs={svgAttrs}
@@ -43,7 +47,7 @@ const App = () => {
           setSvgAttrs(attr);
         }}
       />
-     <InputTextArea change={setShapes} />
+    
      <AddShape addShape={(shape)=>{
         setShapes([...shapes,{shape,attributes:defaultValues[shape],id:Date.now()}])
       }} />
