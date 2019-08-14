@@ -21,6 +21,7 @@ const App = () => {
   const [shapes, setShapes] = useState(start);
   const [svgAttrs, setSvgAttrs] = useState({ viewBox: "0 0 720 720" });
   const [selectedShape, setSelectedShape] = useState(null);
+  const [saved,setSaved] = useState(localStorage.getItem('save'));
 
   // helpers
   const moveShape = (step) => (movedShape) => {
@@ -30,7 +31,6 @@ const App = () => {
           shapes[index]=old;
           setShapes(shapes.slice())
   }
-  
   return (
     <>
     <header>
@@ -49,9 +49,12 @@ const App = () => {
         }>Save</button>
         <button onClick={()=>{
           const obj=JSON.parse(localStorage.getItem("save"));
-          setShapes(obj.shapes);
-          setSvgAttrs(obj.attributes);
-        }}>Load</button>
+          if (obj){
+            setShapes(obj.shapes);
+            setSvgAttrs(obj.attributes);
+            setSaved(true)
+          }
+        }} disabled={!saved} >Load</button>
       </div>
      </div>
     </div>

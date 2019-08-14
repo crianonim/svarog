@@ -36,7 +36,10 @@ button:hover {
   background: black;
   color:white;
 }
-
+button:disabled:hover {
+  background: none;
+  color: graytext;
+}
 input {
 padding: 1px;
 margin: 1px;
