@@ -45,6 +45,7 @@ const App = () => {
       <div>
         <button onClick={ ()=>{
           localStorage.setItem("save",JSON.stringify({attributes:svgAttrs,shapes}));
+          setSaved(true);
          }
         }>Save</button>
         <button onClick={()=>{
@@ -52,7 +53,6 @@ const App = () => {
           if (obj){
             setShapes(obj.shapes);
             setSvgAttrs(obj.attributes);
-            setSaved(true)
           }
         }} disabled={!saved} >Load</button>
       </div>
