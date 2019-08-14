@@ -10,8 +10,9 @@ const SvgView = (props) => {
     const setZoomHandler = zoom => () => setZoom(zoom);
     return (
         <div className="svg-display margined">
-            <div className="svg-zoom-control flex-row">
+            <div className="svg-zoom-control flex-row flex-align-center">
                 {/* <span className="header">Zoom:</span> */}
+                <button onClick={props.createRandom}>Random</button>
                 <span >Zoom:</span>
 
                 <label>

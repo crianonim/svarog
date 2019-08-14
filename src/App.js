@@ -38,7 +38,9 @@ const App = () => {
     </header>
     <div className="flex-row">
 
-      <SvgView shapes={shapes} attrs={svgAttrs} setSelectedShape={setSelectedShape}/>
+      <SvgView shapes={shapes} attrs={svgAttrs} setSelectedShape={setSelectedShape} createRandom={()=>{
+        console.log("Create random SVG");
+      }}/>
      <div className="flex-column flex-grow bordered margined">
       <CodePanel shapes={shapes} svgAttrs={svgAttrs} />
       <InputTextArea change={setShapes} />
