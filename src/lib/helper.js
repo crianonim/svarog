@@ -51,13 +51,16 @@ export const createRandomShape=()=>{
   const type=shapes[rnd(2)]
   const shape={shape:type};
   if (type==='circle'||type==='rect'){
-    shape.attributes=Object.fromEntries( Object.entries( defaultValues[type]).map(entry=>{entry[1]=rnd(544);return entry}) );
+    shape.attributes=Object.fromEntries( Object.entries( defaultValues[type]).map(entry=>{
+      entry[1]=rnd( (entry[0]==="r"||entry[0]==="width"||entry[0]==="height")?540:720);
+      return entry
+    }) );
     
   }
   if (probably(0.5)){
     shape.attributes.strokeWidth=rnd(10)+1;
   }
-  if (probably(0.6)){
+  if (probably(0.7)){
     shape.attributes.fill=colours[rnd(colours.length)];
   }
   if (probably(0.4)){
