@@ -6,14 +6,6 @@ const ShapeItem = (props) => {
     const shape = props.shape;
     return (
      <div key={shape.id} className="flex-row shape-item " >
-        <BasicAttrEditor
-          element={shape.shape}
-          attrs={shape.attributes}
-          changed={attrs => {
-            shape.attributes=attrs;
-            props.changed(shape);
-          }}
-        />
         <div className="move-up-down-buttons">
           <button onClick={()=>{
             props.duplicate(shape);
@@ -23,12 +15,21 @@ const ShapeItem = (props) => {
             <button className="move-up-button"
               onClick={() => {
                   props.shapeUp(shape);
-              }}>up</button>
+              }}>&#x21E7;</button>
             <button className="move-down-button" onClick={() => {
                 props.shapeDown(shape);
               }}
-            >down</button>
+            >&#x21E9;</button>
         </div>
+        <BasicAttrEditor
+          element={shape.shape}
+          attrs={shape.attributes}
+          changed={attrs => {
+            shape.attributes=attrs;
+            props.changed(shape);
+          }}
+        />
+       
     </div>
     );
 }
