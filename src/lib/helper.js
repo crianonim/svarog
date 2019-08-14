@@ -48,7 +48,7 @@ export const rnd = (max) => (Math.random()*max)>>0;
 export const createRandomShape=()=>{
   const shapes=Object.keys(defaultValues);
   // const type=shapes[rnd(shapes.length)]
-  const type=shapes[rnd(2)]
+  const type=shapes[rnd(3)]
   const shape={shape:type};
   if (type==='circle'||type==='rect'){
     shape.attributes=Object.fromEntries( Object.entries( defaultValues[type]).map(entry=>{
@@ -56,6 +56,15 @@ export const createRandomShape=()=>{
       return entry
     }) );
     
+  } else if (type==='polygon'){
+    const points=[];
+    const count=rnd(12);
+    for (let i=0;i<count;i++){
+      points.push(rnd(720));
+      points.push(rnd(720));
+
+    }
+    shape.attributes={points:points.join(' ')}
   }
   if (probably(0.5)){
     shape.attributes.strokeWidth=rnd(10)+1;
