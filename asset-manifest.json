@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/svarog/static/css/main.44e19a94.chunk.css",
-    "main.js": "/svarog/static/js/main.9bd9440d.chunk.js",
-    "main.js.map": "/svarog/static/js/main.9bd9440d.chunk.js.map",
+    "main.css": "/svarog/static/css/main.5639b2aa.chunk.css",
+    "main.js": "/svarog/static/js/main.e2ef95f0.chunk.js",
+    "main.js.map": "/svarog/static/js/main.e2ef95f0.chunk.js.map",
     "runtime~main.js": "/svarog/static/js/runtime~main.fb8b7770.js",
     "runtime~main.js.map": "/svarog/static/js/runtime~main.fb8b7770.js.map",
     "static/js/2.7fe61cb4.chunk.js": "/svarog/static/js/2.7fe61cb4.chunk.js",
     "static/js/2.7fe61cb4.chunk.js.map": "/svarog/static/js/2.7fe61cb4.chunk.js.map",
     "index.html": "/svarog/index.html",
-    "precache-manifest.a1bce3b723e22139247946b2dbda5971.js": "/svarog/precache-manifest.a1bce3b723e22139247946b2dbda5971.js",
+    "precache-manifest.d2dd12e332d37fbb7e69458ff8dd84aa.js": "/svarog/precache-manifest.d2dd12e332d37fbb7e69458ff8dd84aa.js",
     "service-worker.js": "/svarog/service-worker.js",
-    "static/css/main.44e19a94.chunk.css.map": "/svarog/static/css/main.44e19a94.chunk.css.map"
+    "static/css/main.5639b2aa.chunk.css.map": "/svarog/static/css/main.5639b2aa.chunk.css.map"
   }
 }
