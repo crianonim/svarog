@@ -34,5 +34,6 @@ export const start = [
 export const defaultValues = {
   circle: { cx:50,cy:30,r:10},
   rect: {x:20,y:50,width:40,height:20},
-  polygon: {points:"10 10 45 15 20 35"}
+  polygon: {points:"10 10 45 15 20 35"},
+  path: {d:"M 10 10 C 200 200, 400 20, 50 10"}
 };
