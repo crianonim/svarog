@@ -32,7 +32,7 @@ export const start = [
   }
 ].map( (el,id)=>({...el,id }) );
 
-export const colours = ["black","red","blue","green","yellow","pink","purple"]
+export const colours = ["brown","black","red","blue","green","yellow","pink","purple",'teal','orange','wheat','coral','crimson']
 
 export const defaultValues = {
   circle: { cx:50,cy:30,r:10},
@@ -41,6 +41,7 @@ export const defaultValues = {
   path: {d:"M 10 10 C 200 200, 400 20, 50 10"}
 };
 
+export const probably = (fraction) => Math.random() < fraction;
 export const rnd = (max) => (Math.random()*max)>>0;
 
 
@@ -51,7 +52,15 @@ export const createRandomShape=()=>{
   const shape={shape:type};
   if (type==='circle'||type==='rect'){
     shape.attributes=Object.fromEntries( Object.entries( defaultValues[type]).map(entry=>{entry[1]=rnd(544);return entry}) );
+    
+  }
+  if (probably(0.5)){
+    shape.attributes.strokeWidth=rnd(10)+1;
+  }
+  if (probably(0.6)){
     shape.attributes.fill=colours[rnd(colours.length)];
+  }
+  if (probably(0.4)){
     shape.attributes.stroke=colours[rnd(colours.length)];
   }
   console.log(type,shape)
