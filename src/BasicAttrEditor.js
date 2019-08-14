@@ -10,6 +10,9 @@ const attrsData = {
   },
   stroke: {
     def: "purple"
+  },
+  strokeWidth:{
+    def:"1"
   }
 };
 

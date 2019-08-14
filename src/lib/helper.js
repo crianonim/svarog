@@ -31,6 +31,9 @@ export const start = [
     }
   }
 ].map( (el,id)=>({...el,id }) );
+
+export const colours = ["black","red","blue","green","yellow","pink","purple"]
+
 export const defaultValues = {
   circle: { cx:50,cy:30,r:10},
   rect: {x:20,y:50,width:40,height:20},
@@ -45,11 +48,13 @@ export const createRandomShape=()=>{
   const shapes=Object.keys(defaultValues);
   // const type=shapes[rnd(shapes.length)]
   const type=shapes[rnd(2)]
-  
   const shape={shape:type};
   if (type==='circle'||type==='rect'){
     shape.attributes=Object.fromEntries( Object.entries( defaultValues[type]).map(entry=>{entry[1]=rnd(544);return entry}) );
+    shape.attributes.fill=colours[rnd(colours.length)];
+    shape.attributes.stroke=colours[rnd(colours.length)];
   }
+  console.log(type,shape)
   return shape;
 
 }
@@ -60,7 +65,7 @@ export const createRandomSVG = ()=>{
   const svg = {attributes,shapes}
   const count = rnd(6)+3;
   for (let i=0;i<count;i++){
-    shapes.push({...createRandomShape(),id:i});
+    shapes.push({...createRandomShape(),id:Date.now()+""+i});
   }
   console.log(count);
   return svg

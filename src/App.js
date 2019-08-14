@@ -41,7 +41,7 @@ const App = () => {
       <SvgView shapes={shapes} attrs={svgAttrs} setSelectedShape={setSelectedShape} createRandom={()=>{
         console.log("Create random SVG");
              const cSvg=createRandomSVG();
-             console.log(cSvg);
+             console.log({cSvg});
              setShapes(cSvg.shapes);
              setSvgAttrs(cSvg.attributes);
       }}/>
