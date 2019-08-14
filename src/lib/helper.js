@@ -37,3 +37,31 @@ export const defaultValues = {
   polygon: {points:"10 10 45 15 20 35"},
   path: {d:"M 10 10 C 200 200, 400 20, 50 10"}
 };
+
+export const rnd = (max) => (Math.random()*max)>>0;
+
+
+export const createRandomShape=()=>{
+  const shapes=Object.keys(defaultValues);
+  // const type=shapes[rnd(shapes.length)]
+  const type=shapes[rnd(2)]
+  
+  const shape={shape:type};
+  if (type==='circle'||type==='rect'){
+    shape.attributes=Object.fromEntries( Object.entries( defaultValues[type]).map(entry=>{entry[1]=rnd(544);return entry}) );
+  }
+  return shape;
+
+}
+
+export const createRandomSVG = ()=>{
+  const shapes =[];
+  const attributes = {viewBox:"0 0 720 720"}
+  const svg = {attributes,shapes}
+  const count = rnd(6)+3;
+  for (let i=0;i<count;i++){
+    shapes.push({...createRandomShape(),id:i});
+  }
+  console.log(count);
+  return svg
+}

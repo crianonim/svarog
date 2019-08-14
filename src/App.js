@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { start, defaultValues } from "./lib/helper.js";
+import { start, defaultValues, createRandomSVG } from "./lib/helper.js";
 import "./App.css";
 
 import CodePanel from "./CodePanel.js";
@@ -40,6 +40,10 @@ const App = () => {
 
       <SvgView shapes={shapes} attrs={svgAttrs} setSelectedShape={setSelectedShape} createRandom={()=>{
         console.log("Create random SVG");
+             const cSvg=createRandomSVG();
+             console.log(cSvg);
+             setShapes(cSvg.shapes);
+             setSvgAttrs(cSvg.attributes);
       }}/>
      <div className="flex-column flex-grow bordered margined">
       <CodePanel shapes={shapes} svgAttrs={svgAttrs} />
