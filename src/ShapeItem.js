@@ -22,8 +22,8 @@ const ShapeItem = (props) => {
               }}
             >&#x21E9;</button>
             {edited?
-            <button onClick={()=>setEdited(false)}>--</button>:
-            <button onClick={()=>setEdited(true)}>...</button>
+            <button className="edit-enable-btn" onClick={()=>setEdited(false)}>--</button>:
+            <button className="edit-enable-btn" onClick={()=>setEdited(true)}>...</button>
           }
         </div>
         <BasicAttrEditor

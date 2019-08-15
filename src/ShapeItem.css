@@ -12,3 +12,7 @@
 .selected-shape {
     background: wheat;
 }
+
+.edit-enable-btn {
+    width:1.5rem;
+}
