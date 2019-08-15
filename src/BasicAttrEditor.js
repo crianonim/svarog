@@ -17,17 +17,20 @@ const BasicAttrEditor = props => {
   return (
     <div className="flex-row flex-wrap attr-wrapper">
       <span>{props.element}</span>
+      {props.edited?
+      
       <select
-        value={addAttr}
-        onChange={e => {
-          console.log(e.target.value);
-          setAddAttr(e.target.value);
-        }}
+      value={addAttr}
+      onChange={e => {
+        console.log(e.target.value);
+        setAddAttr(e.target.value);
+      }}
       >
         {unUsedAttrs.map(key => (
           <option key={key}>{key}</option>
-        ))}
+          ))}
       </select>
+      :null}
 
       <button
         onClick={() => {
