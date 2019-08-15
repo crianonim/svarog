@@ -34,7 +34,8 @@ export const start = [
 
 export const attrsData = {
   viewBox: {
-    def: "0 0 360 360"
+    def: "0 0 360 360",
+    el:["svg"]
   },
   fill: {
     def: "pink",
@@ -47,13 +48,33 @@ export const attrsData = {
   strokeWidth:{
     def:"1"
   },
-  cx:{},
-  cy:{},
-  r:{},
-  width:{},
-  height:{},
-  x:{},
-  y:{},
+  cx:{
+    el:["circle"]
+  },
+  cy:{
+    el:["circle"]
+  },
+  r:{
+    el:["circle"]
+  },
+  width:{
+    el:["rect"]
+  },
+  height:{
+    el:["rect"]
+  },
+  x:{
+    el:["rect"]
+  },
+  y:{
+    el:["rect"]
+  },
+  points:{
+    el:["polygon"]
+  },
+  d:{
+    el:["path"]
+  }
 };
 
 

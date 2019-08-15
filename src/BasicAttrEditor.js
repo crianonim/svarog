@@ -4,7 +4,10 @@ import {attrsData} from './lib/helper.js';
 
 const BasicAttrEditor = props => {
   const [controls, setControls] = useState(Object.entries(props.attrs));
-  const unUsedAttrs = Object.keys(attrsData).filter(key =>
+  const validAttrs = Object.entries(attrsData)
+   .filter( ([_,attr])=>!attr.el || attr.el.includes(props.element))
+   .map(([key,_])=>key);
+  const unUsedAttrs = validAttrs.filter(key =>
     controls.every(control => control[0] !== key)
   );
   const [addAttr, setAddAttr] = useState(unUsedAttrs[0]);
