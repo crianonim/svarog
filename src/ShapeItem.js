@@ -10,20 +10,22 @@ const ShapeItem = (props) => {
         <div className="move-up-down-buttons">
           <button onClick={()=>{
             props.duplicate(shape);
-          }} className="dup-shape-button">
+          }} className="dup-shape-button"
+          title="Duplicate Shape"
+          >
             *
           </button>
-            <button className="move-up-button"
+            <button title="Move Up"  className="move-up-button"
               onClick={() => {
                   props.shapeUp(shape);
               }}>&#x21E7;</button>
-            <button className="move-down-button" onClick={() => {
+            <button title="Move Down" className="move-down-button" onClick={() => {
                 props.shapeDown(shape);
               }}
             >&#x21E9;</button>
             {edited?
-            <button className="edit-enable-btn" onClick={()=>setEdited(false)}>--</button>:
-            <button className="edit-enable-btn" onClick={()=>setEdited(true)}>...</button>
+            <button title="Disable attribute editing" className="edit-enable-btn" onClick={()=>setEdited(false)}>--</button>:
+            <button title="Enable attribute editing" className="edit-enable-btn" onClick={()=>setEdited(true)}>...</button>
           }
         </div>
         <BasicAttrEditor

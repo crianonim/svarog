@@ -81,7 +81,7 @@ const App = () => {
       <div className="shapes-list">
       {shapes.map( shape => (
         <div key={shape.id} className={"flex-row " +(shape.id===selectedShape?"selected-shape":"")}>
-        <button onClick={()=>{
+        <button  title="Delete Shape" onClick={()=>{
           setShapes(shapes.filter(el=>el!==shape));
         }}>x</button>
         <ShapeItem  shape={shape} duplicate={(shape)=>{
