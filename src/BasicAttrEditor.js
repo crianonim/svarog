@@ -1,29 +1,6 @@
 import React, { useState } from "react";
 import './BasicAttrEditor.css';
-
-const attrsData = {
-  viewBox: {
-    def: "0 0 360 360"
-  },
-  fill: {
-    def: "pink",
-    type: "color"
-  },
-  stroke: {
-    def: "purple",
-    type: "color"
-  },
-  strokeWidth:{
-    def:"1"
-  },
-  cx:{},
-  cy:{},
-  r:{},
-  width:{},
-  height:{},
-  x:{},
-  y:{},
-};
+import {attrsData} from './lib/helper.js';
 
 const BasicAttrEditor = props => {
   const [controls, setControls] = useState(Object.entries(props.attrs));

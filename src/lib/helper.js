@@ -32,6 +32,32 @@ export const start = [
   }
 ].map( (el,id)=>({...el,id }) );
 
+export const attrsData = {
+  viewBox: {
+    def: "0 0 360 360"
+  },
+  fill: {
+    def: "pink",
+    type: "color"
+  },
+  stroke: {
+    def: "purple",
+    type: "color"
+  },
+  strokeWidth:{
+    def:"1"
+  },
+  cx:{},
+  cy:{},
+  r:{},
+  width:{},
+  height:{},
+  x:{},
+  y:{},
+};
+
+
+
 export const colours = ["brown","black","red","blue","green","yellow","pink","purple",'teal','orange','wheat','coral','crimson']
 
 export const defaultValues = {
