@@ -18,7 +18,7 @@ const BasicAttrEditor = props => {
     <div className="flex-row flex-wrap attr-wrapper">
       <span>{props.element}</span>
       {props.edited?
-      
+      <>
       <select
       value={addAttr}
       onChange={e => {
@@ -30,7 +30,7 @@ const BasicAttrEditor = props => {
           <option key={key}>{key}</option>
           ))}
       </select>
-      :null}
+      
 
       <button
         onClick={() => {
@@ -43,6 +43,8 @@ const BasicAttrEditor = props => {
       >
         +
       </button>
+      </>
+      :null}
       {controls.map(([key, value], i) => {
         return (
           <span key={key} className="attr-pair">
