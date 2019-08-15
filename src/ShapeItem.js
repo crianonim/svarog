@@ -1,9 +1,10 @@
-import React from 'react';
+import React,{useState} from 'react';
 import BasicAttrEditor from './BasicAttrEditor.js';
 import './ShapeItem.css';
 
 const ShapeItem = (props) => {
     const shape = props.shape;
+    const [edited,setEdited] = useState(false);
     return (
      <div key={shape.id} className="flex-row shape-item " >
         <div className="move-up-down-buttons">
@@ -20,10 +21,15 @@ const ShapeItem = (props) => {
                 props.shapeDown(shape);
               }}
             >&#x21E9;</button>
+            {edited?
+            <button onClick={()=>setEdited(false)}>--</button>:
+            <button onClick={()=>setEdited(true)}>...</button>
+          }
         </div>
         <BasicAttrEditor
           element={shape.shape}
           attrs={shape.attributes}
+          edited={edited}
           changed={attrs => {
             shape.attributes=attrs;
             props.changed(shape);

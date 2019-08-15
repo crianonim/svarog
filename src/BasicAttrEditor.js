@@ -53,7 +53,9 @@ const BasicAttrEditor = props => {
               value={value}
             />
             {attrsData[key].type==="color"?(<span className="color-box" style={{color:value}}>&#x2588;</span>):null}
+            {props.edited?(<button>x</button>):null}
           </span>
+
         );
       })}
     </div>
