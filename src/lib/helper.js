@@ -49,31 +49,43 @@ export const attrsData = {
     def:"1"
   },
   cx:{
-    el:["circle"]
+    el:["circle"],
+    def:360
   },
   cy:{
-    el:["circle"]
+    el:["circle"],
+    def:360
   },
   r:{
-    el:["circle"]
+    el:["circle"],
+    def:12
   },
   width:{
-    el:["rect"]
+    el:["rect"],
+    def:100,
   },
   height:{
-    el:["rect"]
+    el:["rect"],
+    def:100,
+
   },
   x:{
-    el:["rect"]
+    el:["rect"],
+    def:100,
+
   },
   y:{
-    el:["rect"]
+    el:["rect"],
+    def:100,
+
   },
   points:{
-    el:["polygon"]
+    el:["polygon"],
+    def:"10 40 50 90"
   },
   d:{
-    el:["path"]
+    el:["path"],
+    def:"M 10 10"
   }
 };
 
