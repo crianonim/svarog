@@ -58,7 +58,7 @@ export const createRandomShape=()=>{
     
   } else if (type==='polygon'){
     const points=[];
-    const count=rnd(12);
+    const count=rnd(8)+4;
     for (let i=0;i<count;i++){
       points.push(rnd(720));
       points.push(rnd(720));
