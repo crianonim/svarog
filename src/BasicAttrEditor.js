@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import './BasicAttrEditor.css';
 import {attrsData} from './lib/helper.js';
 
+
+
 const BasicAttrEditor = props => {
   const [controls, setControls] = useState(Object.entries(props.attrs));
   const validAttrs = Object.entries(attrsData)
@@ -53,7 +55,7 @@ const BasicAttrEditor = props => {
               value={value}
             />
             {attrsData[key].type==="color"?(<span className="color-box" style={{color:value}}>&#x2588;</span>):null}
-            {props.edited?(<button>x</button>):null}
+            {props.edited?(<button onClick={()=>{props.changed(Object.fromEntries(removeAttributeFromShape(controls,key)))}}>x</button>):null}
           </span>
 
         );
@@ -61,5 +63,9 @@ const BasicAttrEditor = props => {
     </div>
   );
 };
+
+const removeAttributeFromShape=(attributes,attributeName)=>{
+  return attributes.filter( ([key,_])=>key!==attributeName );
+}
 
 export default BasicAttrEditor;
