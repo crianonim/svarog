@@ -6,14 +6,23 @@ const attrsData = {
     def: "0 0 360 360"
   },
   fill: {
-    def: "pink"
+    def: "pink",
+    type: "color"
   },
   stroke: {
-    def: "purple"
+    def: "purple",
+    type: "color"
   },
   strokeWidth:{
     def:"1"
-  }
+  },
+  cx:{},
+  cy:{},
+  r:{},
+  width:{},
+  height:{},
+  x:{},
+  y:{},
 };
 
 const BasicAttrEditor = props => {
@@ -54,7 +63,7 @@ const BasicAttrEditor = props => {
           <span key={key} className="attr-pair">
             
             <span className="key-name">{key}</span>
-            <input
+            <input 
               onChange={e => {
                 controls[i][1] = e.target.value;
                 setControls(controls.slice());
@@ -63,6 +72,7 @@ const BasicAttrEditor = props => {
             style={{ width: (value+"").length / 2 + "rem" }}
               value={value}
             />
+            {attrsData[key].type==="color"?(<span className="color-box" style={{color:value}}>&#x2588;</span>):null}
           </span>
         );
       })}
