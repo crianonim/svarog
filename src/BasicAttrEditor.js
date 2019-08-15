@@ -55,7 +55,12 @@ const BasicAttrEditor = props => {
               value={value}
             />
             {attrsData[key].type==="color"?(<span className="color-box" style={{color:value}}>&#x2588;</span>):null}
-            {props.edited?(<button onClick={()=>{props.changed(Object.fromEntries(removeAttributeFromShape(controls,key)))}}>x</button>):null}
+            {props.edited?(<button onClick={()=>{
+              const changedAttrs=removeAttributeFromShape(controls,key)
+              props.changed(Object.fromEntries(changedAttrs))
+              setControls(changedAttrs);
+              }
+            }>x</button>):null}
           </span>
 
         );
