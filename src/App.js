@@ -36,7 +36,8 @@ const App = () => {
   return (
     <>
     <header>
-      <h1>Svarog</h1>
+      <h1><span className="title-letters">Sv</span>aro<span className="title-letters" >g</span></h1>
+      <h2>A slavic deity of celestial fire and blacksmithing that will help you create SVGs.</h2>
     </header>
     {message?<Messages message={message} dismiss={()=>setMessage(null)}/>:null}    
     <div className="flex-row">
