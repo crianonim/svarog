@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "8c89dffea0fa7a273f3a7d1955d05bd6",
+    "revision": "6aa5c4bf1bee6bbb228bb1ddb6875591",
     "url": "/svarog/index.html"
   },
   {
-    "revision": "7f4876e9b263944aaa22",
+    "revision": "fd5ba64ae149e85b77ca",
     "url": "/svarog/static/css/main.bc63b2fe.chunk.css"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/svarog/static/js/2.7fe61cb4.chunk.js"
   },
   {
-    "revision": "7f4876e9b263944aaa22",
-    "url": "/svarog/static/js/main.ea534e83.chunk.js"
+    "revision": "fd5ba64ae149e85b77ca",
+    "url": "/svarog/static/js/main.229076c0.chunk.js"
   },
   {
     "revision": "3979fa419e82df434d35",
