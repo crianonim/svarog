@@ -21,3 +21,6 @@ h1 {
 .flex-align-center{
   align-items: center;
 }
+.right-panel {
+  overflow: hidden;
+}

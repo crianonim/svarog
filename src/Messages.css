@@ -1,6 +1,9 @@
 .message {
     padding: 1rem;
     margin: 0;
+    font-size: 0.8rem;
+    font-weight: bold;
+    cursor: pointer;
 }
 .message-type-e {
     color: red;

@@ -23,7 +23,7 @@ const App = () => {
   const [svgAttrs, setSvgAttrs] = useState({ viewBox: "0 0 720 720" });
   const [selectedShape, setSelectedShape] = useState(null);
   const [saved,setSaved] = useState(localStorage.getItem('save'));
-  const [message,setMessage] = useState("Badly formed svg shape. Please coorect.")
+  const [message,setMessage] = useState(null)
 
   // helpers
   const moveShape = (step) => (movedShape) => {
@@ -47,14 +47,16 @@ const App = () => {
              console.log({cSvg});
              setShapes(cSvg.shapes);
              setSvgAttrs(cSvg.attributes);
+             setMessage("Random svg created.")
       }}/>
-     <div className="flex-column flex-grow bordered margined">
+     <div className="flex-column flex-grow bordered margined right-panel">
       <CodePanel shapes={shapes} svgAttrs={svgAttrs} />
       <InputTextArea msg={setMessage} change={setShapes} />
       <div>
         <button onClick={ ()=>{
           localStorage.setItem("save",JSON.stringify({attributes:svgAttrs,shapes}));
           setSaved(true);
+          setMessage("SVG shape saved.");
          }
         }>Save</button>
         <button onClick={()=>{
@@ -62,6 +64,7 @@ const App = () => {
           if (obj){
             setShapes(obj.shapes);
             setSvgAttrs(obj.attributes);
+            setMessage("SVG shape loaded.")
           }
         }} disabled={!saved} >Load</button>
       </div>
