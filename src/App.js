@@ -23,7 +23,7 @@ const App = () => {
   const [svgAttrs, setSvgAttrs] = useState({ viewBox: "0 0 720 720" });
   const [selectedShape, setSelectedShape] = useState(null);
   const [saved,setSaved] = useState(localStorage.getItem('save'));
-  const [message,setMessage] = useState("E#Badly formed svg shape. Please coorect.")
+  const [message,setMessage] = useState("Badly formed svg shape. Please coorect.")
 
   // helpers
   const moveShape = (step) => (movedShape) => {

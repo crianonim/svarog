@@ -1,6 +1,13 @@
 .message {
     padding: 1rem;
+    margin: 0;
 }
 .message-type-e {
-    background: red;
+    color: red;
+}
+.message-type-w {
+    color:yellow;
+}
+.message-type-i {
+    color:blue;
 }
