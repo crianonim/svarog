@@ -50,7 +50,7 @@ const App = () => {
       }}/>
      <div className="flex-column flex-grow bordered margined">
       <CodePanel shapes={shapes} svgAttrs={svgAttrs} />
-      <InputTextArea change={setShapes} />
+      <InputTextArea msg={setMessage} change={setShapes} />
       <div>
         <button onClick={ ()=>{
           localStorage.setItem("save",JSON.stringify({attributes:svgAttrs,shapes}));

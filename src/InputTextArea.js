@@ -17,7 +17,7 @@ const InputTextArea = (props) => {
             })
             props.change(shapes);
           } else {
-            console.log('MESSAGE',"Badly formed svg code.")
+            props.msg("E#Badly formed SVG.")
           }
       }
       }>parse</button>
