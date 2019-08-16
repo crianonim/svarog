@@ -8,6 +8,7 @@ import ShapeItem from "./ShapeItem";
 import InputTextArea from './InputTextArea';
 import SvgView from './SvgView.js';
 import AddShape from './AddShape.js';
+import Messages from './Messages.js';
 
 const App = () => {
   useEffect(() => {
@@ -22,6 +23,7 @@ const App = () => {
   const [svgAttrs, setSvgAttrs] = useState({ viewBox: "0 0 720 720" });
   const [selectedShape, setSelectedShape] = useState(null);
   const [saved,setSaved] = useState(localStorage.getItem('save'));
+  const [message,setMessage] = useState("E#Badly formed svg shape. Please coorect.")
 
   // helpers
   const moveShape = (step) => (movedShape) => {
@@ -36,6 +38,7 @@ const App = () => {
     <header>
       <h1>Svarog</h1>
     </header>
+    {message?<Messages message={message} />:null}    
     <div className="flex-row">
 
       <SvgView shapes={shapes} attrs={svgAttrs} setSelectedShape={setSelectedShape} createRandom={()=>{
