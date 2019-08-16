@@ -39,17 +39,10 @@ const App = () => {
       <h1><span className="title-letters">Sv</span>aro<span className="title-letters" >g</span></h1>
       <h2>A slavic deity of celestial fire and blacksmithing that will help you create SVGs.</h2>
     </header>
-    {message?<Messages message={message} dismiss={()=>setMessage(null)}/>:null}    
+    <Messages  message={message} dismiss={()=>setMessage(null)}/>    
     <div className="flex-row">
 
-      <SvgView shapes={shapes} attrs={svgAttrs} setSelectedShape={setSelectedShape} createRandom={()=>{
-        console.log("Create random SVG");
-             const cSvg=createRandomSVG();
-             console.log({cSvg});
-             setShapes(cSvg.shapes);
-             setSvgAttrs(cSvg.attributes);
-             setMessage("Random svg created.")
-      }}/>
+      <SvgView shapes={shapes} attrs={svgAttrs} setSelectedShape={setSelectedShape} />
      <div className="flex-column flex-grow bordered margined right-panel">
       <CodePanel shapes={shapes} svgAttrs={svgAttrs} />
       <InputTextArea msg={setMessage} change={setShapes} />
@@ -72,7 +65,14 @@ const App = () => {
      </div>
     </div>
     <div className="svg-data margined bordered">
-
+    <button onClick={()=>{
+        console.log("Create random SVG");
+             const cSvg=createRandomSVG();
+             console.log({cSvg});
+             setShapes(cSvg.shapes);
+             setSvgAttrs(cSvg.attributes);
+             setMessage("Random svg created.")
+      }}>Randomise the SVG!</button>
       <BasicAttrEditor
         element="svg"
         attrs={svgAttrs}
