@@ -10,11 +10,15 @@ const InputTextArea = (props) => {
          const fakeDOM=document.createElement('div');
          fakeDOM.innerHTML=document.querySelector('textarea').value;
          const svg=fakeDOM.children[0];
-         const shapes=Array.from(svg.children).map(child=>{
-           const atts=Object.fromEntries(child.getAttributeNames().map(att=>[att,child.getAttribute(att)]));
-           return {id:id++,attributes:atts,shape:child.tagName}
-        })
-        props.change(shapes);
+         if (svg) {
+           const shapes=Array.from(svg.children).map(child=>{
+             const atts=Object.fromEntries(child.getAttributeNames().map(att=>[att,child.getAttribute(att)]));
+             return {id:id++,attributes:atts,shape:child.tagName}
+            })
+            props.change(shapes);
+          } else {
+            console.log('MESSAGE',"Badly formed svg code.")
+          }
       }
       }>parse</button>
       
