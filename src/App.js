@@ -38,7 +38,7 @@ const App = () => {
     <header>
       <h1>Svarog</h1>
     </header>
-    {message?<Messages message={message} />:null}    
+    {message?<Messages message={message} dismiss={()=>setMessage(null)}/>:null}    
     <div className="flex-row">
 
       <SvgView shapes={shapes} attrs={svgAttrs} setSelectedShape={setSelectedShape} createRandom={()=>{

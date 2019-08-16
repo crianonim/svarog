@@ -3,7 +3,7 @@ import './Messages.css';
 
 const Messages = (props)=>{
     return (
-    <div className="bordered margined">
+    <div className="bordered margined" onClick={props.dismiss}>
      {props.message}    
     </div>
     );
