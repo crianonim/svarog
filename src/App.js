@@ -78,6 +78,7 @@ const App = () => {
       
       <BasicAttrEditor
         element="svg"
+        edited="true"
         attrs={svgAttrs}
         changed={attr => {
           setSvgAttrs(attr);
