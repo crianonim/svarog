@@ -146,10 +146,14 @@ export const createRandomShape=()=>{
     shape.attributes.strokeWidth=rnd(10)+1;
   }
   if (probably(0.7)){
-    shape.attributes.fill=colours[rnd(colours.length)];
+    // shape.attributes.fill=colours[rnd(colours.length)];
+    shape.attributes.fill=randomColorString();
+
   }
   if (probably(0.4)){
-    shape.attributes.stroke=colours[rnd(colours.length)];
+    // shape.attributes.stroke=colours[rnd(colours.length)];
+    shape.attributes.stroke=randomColorString();
+
   }
   console.log(type,shape)
   return shape;
