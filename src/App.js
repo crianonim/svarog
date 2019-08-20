@@ -85,11 +85,11 @@ const App = () => {
         }}
         />
     
-     <AddShape addShape={(shape)=>{
+    
+    </div><label> Add new shape</label> 
+    <AddShape addShape={(shape)=>{
        setShapes([...shapes,{shape,attributes:defaultValues[shape],id:Date.now()}])
       }} />
-    </div>
-
       <div className="shapes-list">
       {shapes.map( shape => (
         <div key={shape.id} className={"flex-row " +(shape.id===selectedShape?"selected-shape":"")}>
