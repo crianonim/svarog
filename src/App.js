@@ -65,14 +65,17 @@ const App = () => {
      </div>
     </div>
     <div className="svg-data margined bordered">
+      <div className="flex-row">
+
     <button onClick={()=>{
-        console.log("Create random SVG");
-             const cSvg=createRandomSVG();
-             console.log({cSvg});
-             setShapes(cSvg.shapes);
-             setSvgAttrs(cSvg.attributes);
-             setMessage("Random svg created.")
-      }}>Randomise the SVG!</button>
+      console.log("Create random SVG");
+      const cSvg=createRandomSVG();
+      console.log({cSvg});
+      setShapes(cSvg.shapes);
+      setSvgAttrs(cSvg.attributes);
+      setMessage("Random svg created.")
+    }}>Randomise</button>
+      
       <BasicAttrEditor
         element="svg"
         attrs={svgAttrs}
@@ -84,6 +87,7 @@ const App = () => {
      <AddShape addShape={(shape)=>{
        setShapes([...shapes,{shape,attributes:defaultValues[shape],id:Date.now()}])
       }} />
+    </div>
 
       <div className="shapes-list">
       {shapes.map( shape => (
