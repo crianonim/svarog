@@ -86,7 +86,23 @@ export const attrsData = {
   d:{
     el:["path"],
     def:"M 10 10"
-  }
+  },
+  x1:{
+    el:["line"],
+    def:"10"
+  },
+  y1:{
+    el:["line"],
+    def:"20"
+  },
+  x2:{
+    el:["line"],
+    def:"30"
+  },
+  y2:{
+    el:["line"],
+    def:"40"
+  },
 };
 
 
@@ -97,7 +113,8 @@ export const defaultValues = {
   circle: { cx:50,cy:30,r:10},
   rect: {x:20,y:50,width:40,height:20},
   polygon: {points:"10 10 45 15 20 35"},
-  path: {d:"M 10 10 C 200 200, 400 20, 50 10"}
+  path: {d:"M 10 10 C 200 200, 400 20, 50 10"},
+  line: {x1:10,y1:20,x2:120,y2:230,stroke:"black"}
 };
 
 export const probably = (fraction) => Math.random() < fraction;
