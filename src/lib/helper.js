@@ -155,6 +155,7 @@ export const createRandomShape=()=>{
   return shape;
 
 }
+export const randomColorString=()=>"#"+[0,0,0].map(_=>rnd(256)).map(n=>n.toString(16)).join('');
 
 export const createRandomSVG = ()=>{
   const shapes =[];
