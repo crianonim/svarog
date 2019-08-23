@@ -45,7 +45,7 @@ const BasicAttrEditor = props => {
       </button>
       </>
       :null}
-      {controls.map(([key, value], i) => {
+      {Object.entries(props.attrs).map(([key, value], i) => {
         return (
           <span key={key} className="attr-pair">
             
