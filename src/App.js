@@ -44,9 +44,12 @@ const App = () => {
 
       <SvgView shapes={shapes} attrs={svgAttrs} setSelectedShape={setSelectedShape} />
      <div className="flex-column flex-grow bordered margined right-panel">
-       {selectedShape?<div class="move-shape" onClick={()=>{
-         const shape=shapes.find(el=>el.id===selectedShape);
+       {selectedShape?<div className="move-shape" onClick={()=>{
+         const shapeId=shapes.findIndex(el=>el.id===selectedShape);
+         const shape={...shapes[shapeId]}
+         shape.attributes={...shape.attributes}
          shape.attributes.cy-=10;
+         shapes[shapeId]=shape
          setShapes(shapes.slice())
   }}>MOVE UP</div>:null}
       <CodePanel shapes={shapes} svgAttrs={svgAttrs} />

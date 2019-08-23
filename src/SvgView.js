@@ -31,7 +31,7 @@ const SvgView = (props) => {
                     800
                 </label>
             </div>
-        <svg {...props.attrs} className="Svg-view" style={{width:zoom}}>
+        <svg {...props.attrs} className="Svg-view" onClick={console.log} style={{width:zoom}}>
         {props.shapes.map((shape, i) => {
           const ShapeType = shape.shape;
           return <ShapeType data-id={shape.id} onClick={(e)=>{
