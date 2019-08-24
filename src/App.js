@@ -9,6 +9,7 @@ import InputTextArea from './InputTextArea';
 import SvgView from './SvgView.js';
 import AddShape from './AddShape.js';
 import Messages from './Messages.js';
+import CurrentShapePanel from './CurrentShapePanel.js';
 
 const App = () => {
   useEffect(() => {
@@ -49,6 +50,7 @@ const App = () => {
           shape.attributes.cy-=10;
          setShapes(shapes.slice())
   }}>MOVE UP</div>:null}
+      <CurrentShapePanel/>
       <CodePanel shapes={shapes} svgAttrs={svgAttrs} />
       <InputTextArea msg={setMessage} change={setShapes} />
       <div>
