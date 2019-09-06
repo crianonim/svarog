@@ -9,6 +9,7 @@ import InputTextArea from './InputTextArea';
 import SvgView from './SvgView.js';
 import AddShape from './AddShape.js';
 import Messages from './Messages.js';
+import CurrentShapePanel from './CurrentShapePanel.js';
 
 const App = () => {
   useEffect(() => {
@@ -44,6 +45,12 @@ const App = () => {
 
       <SvgView shapes={shapes} attrs={svgAttrs} setSelectedShape={setSelectedShape} />
      <div className="flex-column flex-grow bordered margined right-panel">
+       {selectedShape?<div className="move-shape" onClick={()=>{
+         const shape=shapes.find(el=>el.id===selectedShape);
+          shape.attributes.cy-=10;
+         setShapes(shapes.slice())
+  }}>MOVE UP</div>:null}
+      <CurrentShapePanel/>
       <CodePanel shapes={shapes} svgAttrs={svgAttrs} />
       <InputTextArea msg={setMessage} change={setShapes} />
       <div>
