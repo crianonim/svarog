@@ -1,7 +1,21 @@
+header {
+ display: flex;
+ align-items: center;
+ justify-content: space-between;
+}
+
 h1 {
   font-family: "Saira Stencil One", cursive;
   text-transform: uppercase;
+  margin-bottom: 0.5rem;
 }
+h2 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: normal;
+  font-style: italic;
+}
+
 .svg-data {
   padding: 1rem;
 }
@@ -20,4 +34,10 @@ h1 {
 }
 .flex-align-center{
   align-items: center;
+}
+.right-panel {
+  overflow: hidden;
+}
+.title-letters {
+  color: red;
 }

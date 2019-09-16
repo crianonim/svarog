@@ -11,8 +11,7 @@ const SvgView = (props) => {
     return (
         <div className="svg-display margined">
             <div className="svg-zoom-control flex-row flex-align-center">
-                {/* <span className="header">Zoom:</span> */}
-                <button onClick={props.createRandom}>Random</button>
+               
                 <span >Zoom:</span>
 
                 <label>
@@ -32,7 +31,7 @@ const SvgView = (props) => {
                     800
                 </label>
             </div>
-        <svg {...props.attrs} className="Svg-view" style={{width:zoom}}>
+        <svg {...props.attrs} className="Svg-view" onClick={console.log} style={{width:zoom}}>
         {props.shapes.map((shape, i) => {
           const ShapeType = shape.shape;
           return <ShapeType data-id={shape.id} onClick={(e)=>{

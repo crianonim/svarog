@@ -9,6 +9,7 @@ import InputTextArea from './InputTextArea';
 import SvgView from './SvgView.js';
 import AddShape from './AddShape.js';
 import Messages from './Messages.js';
+import CurrentShapePanel from './CurrentShapePanel.js';
 
 const App = () => {
   useEffect(() => {
@@ -36,25 +37,27 @@ const App = () => {
   return (
     <>
     <header>
-      <h1>Svarog</h1>
+      <h1><span className="title-letters">Sv</span>aro<span className="title-letters" >g</span></h1>
+      <h2>A slavic deity of celestial fire and blacksmithing that will help you create SVGs.</h2>
     </header>
-    {message?<Messages message={message} dismiss={()=>setMessage(null)}/>:null}    
+    <Messages  message={message} dismiss={()=>setMessage(null)}/>    
     <div className="flex-row">
 
-      <SvgView shapes={shapes} attrs={svgAttrs} setSelectedShape={setSelectedShape} createRandom={()=>{
-        console.log("Create random SVG");
-             const cSvg=createRandomSVG();
-             console.log({cSvg});
-             setShapes(cSvg.shapes);
-             setSvgAttrs(cSvg.attributes);
-      }}/>
-     <div className="flex-column flex-grow bordered margined">
+      <SvgView shapes={shapes} attrs={svgAttrs} setSelectedShape={setSelectedShape} />
+     <div className="flex-column flex-grow bordered margined right-panel">
+       {selectedShape?<div className="move-shape" onClick={()=>{
+         const shape=shapes.find(el=>el.id===selectedShape);
+          shape.attributes.cy-=10;
+         setShapes(shapes.slice())
+  }}>MOVE UP</div>:null}
+      <CurrentShapePanel/>
       <CodePanel shapes={shapes} svgAttrs={svgAttrs} />
       <InputTextArea msg={setMessage} change={setShapes} />
       <div>
         <button onClick={ ()=>{
           localStorage.setItem("save",JSON.stringify({attributes:svgAttrs,shapes}));
           setSaved(true);
+          setMessage("SVG shape saved.");
          }
         }>Save</button>
         <button onClick={()=>{
@@ -62,25 +65,38 @@ const App = () => {
           if (obj){
             setShapes(obj.shapes);
             setSvgAttrs(obj.attributes);
+            setMessage("SVG shape loaded.")
           }
         }} disabled={!saved} >Load</button>
       </div>
      </div>
     </div>
     <div className="svg-data margined bordered">
+      <div className="flex-row">
 
+    <button onClick={()=>{
+      console.log("Create random SVG");
+      const cSvg=createRandomSVG();
+      console.log({cSvg});
+      setShapes(cSvg.shapes);
+      setSvgAttrs(cSvg.attributes);
+      setMessage("Random svg created.")
+    }}>Randomise</button>
+      
       <BasicAttrEditor
         element="svg"
+        edited="true"
         attrs={svgAttrs}
         changed={attr => {
           setSvgAttrs(attr);
         }}
         />
     
-     <AddShape addShape={(shape)=>{
+    
+    </div><label> Add new shape</label> 
+    <AddShape addShape={(shape)=>{
        setShapes([...shapes,{shape,attributes:defaultValues[shape],id:Date.now()}])
       }} />
-
       <div className="shapes-list">
       {shapes.map( shape => (
         <div key={shape.id} className={"flex-row " +(shape.id===selectedShape?"selected-shape":"")}>

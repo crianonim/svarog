@@ -25,6 +25,9 @@ code {
 .margined {
   margin:1px;
 }
+.invisible {
+  visibility: hidden;
+}
 button, select, input {
   background: none;
   border: 1px solid black;
