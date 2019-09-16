@@ -15,7 +15,7 @@ const BasicAttrEditor = props => {
   const [addAttr, setAddAttr] = useState(unUsedAttrs[0]);
   // console.log(props.element, unUsedAttrs);
   return (
-    <div className="flex-row flex-wrap attr-wrapper">
+    <div className="flex-row flex-wrap attr-wrapper block">
       <span>{props.element}</span>
       {props.edited?
       <>
