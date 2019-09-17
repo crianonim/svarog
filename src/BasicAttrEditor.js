@@ -53,7 +53,7 @@ const BasicAttrEditor = ({attrs,element,changed}) => {
                 setControls(controls.slice());
                 changed(Object.fromEntries(controls));
             }}
-            style={{ width: (value+"").length / 2 + "rem" }}
+            style={{ width: (value+"").length + "rem" }}
               value={value}
             />
             {attrsData[key].type==="color"?(<span className="color-box" style={{color:value}}>&#x2588;</span>):null}

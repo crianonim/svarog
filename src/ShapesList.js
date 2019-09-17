@@ -6,7 +6,7 @@ const ShapesList = ({shapes,selectedShape,setShapes,setSelectedShape,moveShape})
      <div className="shapes-list">
       {shapes.map( shape => (
         <div key={shape.id} className={"flex-row " +(shape.id===selectedShape?"selected-shape":"")}>
-        <button className="button is-small is-danger" title="Delete Shape" onClick={()=>{
+        <button className="button is-small is-danger " title="Delete Shape" onClick={()=>{
           setShapes(shapes.filter(el=>el!==shape));
           setSelectedShape(null)
         }}>x</button>
