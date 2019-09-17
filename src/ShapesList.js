@@ -10,7 +10,7 @@ const ShapesList = ({shapes,selectedShape,setShapes,setSelectedShape,moveShape})
           setShapes(shapes.filter(el=>el!==shape));
           setSelectedShape(null)
         }}>x</button>
-        <ShapeItem  shape={shape} duplicate={(shape)=>{
+        <ShapeItem setSelectedShape={setSelectedShape} shape={shape} duplicate={(shape)=>{
           const dup=Object.assign({},shape);
           dup.id=Date.now();
           let index=shapes.findIndex(el=>el===shape);
