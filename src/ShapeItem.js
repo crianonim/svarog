@@ -1,11 +1,9 @@
-import React,{useState} from 'react';
-import BasicAttrEditor from './BasicAttrEditor.js';
+import React from 'react';
 import './ShapeItem.css';
 import AttrList from './AttrList.js';
 
 const ShapeItem = (props) => {
     const shape = props.shape;
-    const [edited,setEdited] = useState(false);
     return (
      <div key={shape.id} className="flex-row shape-item " >
         <div className="move-up-down-buttons">
@@ -29,7 +27,6 @@ const ShapeItem = (props) => {
         <AttrList
           element={shape.shape}
           attrs={shape.attributes}
-          edited={edited}
           changed={attrs => {
             shape.attributes=attrs;
             props.changed(shape);

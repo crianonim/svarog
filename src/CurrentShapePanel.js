@@ -8,7 +8,6 @@ const CurrentShapePanel = ({shape,changed})=>{
         <BasicAttrEditor
           element={shape.shape}
           attrs={shape.attributes}
-          edited={true}
           changed={attrs => {
             shape.attributes=attrs;
             changed(shape);

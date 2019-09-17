@@ -4,7 +4,6 @@ import "./App.css";
 import "../node_modules/bulma/css/bulma.min.css"
 import CodePanel from "./CodePanel.js";
 import BasicAttrEditor from "./BasicAttrEditor.js";
-import ShapeItem from "./ShapeItem";
 import InputTextArea from './InputTextArea';
 import SvgView from './SvgView.js';
 import AddShape from './AddShape.js';

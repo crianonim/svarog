@@ -4,20 +4,19 @@ import {attrsData} from './lib/helper.js';
 
 
 
-const BasicAttrEditor = props => {
-  const [controls, setControls] = useState(Object.entries(props.attrs));
+const BasicAttrEditor = ({attrs,element,changed}) => {
+  const [controls, setControls] = useState(Object.entries(attrs));
   const validAttrs = Object.entries(attrsData)
-   .filter( ([_,attr])=>!attr.el || attr.el.includes(props.element))
+   .filter( ([_,attr])=>!attr.el || attr.el.includes(element))
    .map(([key,_])=>key);
   const unUsedAttrs = validAttrs.filter(key =>
     controls.every(control => control[0] !== key)
   );
   const [addAttr, setAddAttr] = useState(unUsedAttrs[0]);
-  // console.log(props.element, unUsedAttrs);
+  // console.log(element, unUsedAttrs);
   return (
     <div className="flex-row flex-wrap attr-wrapper block">
-      <span>{props.element}</span>
-      {props.edited?
+      <span>{element}</span>
       <span className="field has-addons">
       <span className="control select is-small">
        <select 
@@ -40,12 +39,11 @@ const BasicAttrEditor = props => {
           const newControls = [...controls, [addAttr, attrsData[addAttr].def]];
           setControls(newControls);
           setAddAttr(unUsedAttrs.filter(key => key !== addAttr)[0]);
-          props.changed(Object.fromEntries(newControls));
+          changed(Object.fromEntries(newControls));
         }}
       >+</button>
       </span>
-      :null}
-      {Object.entries(props.attrs).map(([key, value], i) => {
+      {Object.entries(attrs).map(([key, value], i) => {
         return (
           <span key={key} className="attr-pair">
             <span className="key-name">{key}</span>
@@ -53,18 +51,18 @@ const BasicAttrEditor = props => {
               onChange={e => {
                 controls[i][1] = e.target.value;
                 setControls(controls.slice());
-                props.changed(Object.fromEntries(controls));
+                changed(Object.fromEntries(controls));
             }}
             style={{ width: (value+"").length / 2 + "rem" }}
               value={value}
             />
             {attrsData[key].type==="color"?(<span className="color-box" style={{color:value}}>&#x2588;</span>):null}
-            {props.edited?(<button className="button is-small" onClick={()=>{
+          <button className="button is-small" onClick={()=>{
               const changedAttrs=removeAttributeFromShape(controls,key)
-              props.changed(Object.fromEntries(changedAttrs))
+              changed(Object.fromEntries(changedAttrs))
               setControls(changedAttrs);
               }
-            }>x</button>):null}
+            }>x</button>
           </span>
 
         );
