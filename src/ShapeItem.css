@@ -3,7 +3,9 @@
     /* background-color: red; */
 
 }
-
+.shapes-list button {
+    margin:1px;
+}
 .shapes-list > div:last-of-type .move-down-button   {
     /* background-color: aquamarine; */
     visibility: hidden;

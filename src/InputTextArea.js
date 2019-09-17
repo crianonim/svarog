@@ -3,9 +3,12 @@ import './InputTextArea.css';
 
 const InputTextArea = (props) => {
     return (
+      <div className="panel">
+        <div className="panel-heading">Parse your SVG code</div>
+         <div className="panel-block">  
         <div className="flex-column  margined">
          <textarea className="parse-input-ta"></textarea>
-         <button onClick={()=>{
+         <button className="button is-small is-info" onClick={()=>{
          let id=1;
          const fakeDOM=document.createElement('div');
          fakeDOM.innerHTML=document.querySelector('textarea').value;
@@ -20,9 +23,11 @@ const InputTextArea = (props) => {
             props.msg("E#Badly formed SVG.")
           }
       }
-      }>parse</button>
-      
+      }>Parse</button>
         </div>
+        </div>
+      
+      </div>      
     )
 }
 

@@ -19,9 +19,9 @@ ${props.shapes
   `;
   
   return (
-    <div className="code-panel">
-      <h3 className="header">Source code:</h3>
-      <pre className="code-content">
+    <div className="panel">
+      <div className="panel-heading">Source code:</div>
+      <pre className="panel-block code-content">
         {svg}
       </pre>
     </div>
