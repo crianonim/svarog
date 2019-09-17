@@ -46,7 +46,7 @@ const App = () => {
     <div className="block">
       <SvgView shapes={shapes} attrs={svgAttrs} setSelectedShape={setSelectedShape} />
       <span onClick={()=>{setSelectedShape(null);setSvgPropertiesSelected(true)}}>
-       <SvgProperties attrs={svgAttrs} changed={attr => {
+       <SvgProperties isSelected={svgPropertiesSelected} attrs={svgAttrs} changed={attr => {
         setSvgAttrs(attr);
       }}/>
       </span>

@@ -1,17 +1,11 @@
 import React from "react"
-import BasicAttrEditor from "./BasicAttrEditor";
 import AttrList from "./AttrList";
 
-const SvgProperties = ({attrs,changed}) => {
+const SvgProperties = ({attrs,isSelected}) => {
     return (
-        <>
+        <div className={isSelected?'selected-shape':''}>
         <AttrList element="svg" attrs={attrs}/>
-        {/* <BasicAttrEditor
-        element="svg"
-        attrs={attrs}
-        changed={changed}
-      /> */}
-        </>
+        </div>
     )
 }
 export default SvgProperties
