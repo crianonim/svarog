@@ -5,7 +5,7 @@ const InputTextArea = (props) => {
     return (
         <div className="flex-column  margined">
          <textarea className="parse-input-ta"></textarea>
-         <button onClick={()=>{
+         <button className="button is-small" onClick={()=>{
          let id=1;
          const fakeDOM=document.createElement('div');
          fakeDOM.innerHTML=document.querySelector('textarea').value;

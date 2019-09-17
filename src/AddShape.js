@@ -15,7 +15,7 @@ const AddShape = (props) => {
           Object.keys(defaultValues).map(shapeName=>(<option key={shapeName}>{shapeName}</option>))
          }
          </select>
-      <button
+      <button className="button is-small"
         onClick={() => {
           props.addShape(newShape)
         }}

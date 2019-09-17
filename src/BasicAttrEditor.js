@@ -18,21 +18,23 @@ const BasicAttrEditor = props => {
     <div className="flex-row flex-wrap attr-wrapper block">
       <span>{props.element}</span>
       {props.edited?
-      <>
-      <select
-      value={addAttr}
-      onChange={e => {
-        console.log(e.target.value);
-        setAddAttr(e.target.value);
-      }}
+      <span className="field has-addons">
+      <span className="control select is-small">
+       <select 
+        value={addAttr}
+        onChange={e => {
+          console.log(e.target.value);
+          setAddAttr(e.target.value);
+       }}
       >
         {unUsedAttrs.map(key => (
           <option key={key}>{key}</option>
           ))}
-      </select>
+       </select>
+      </span>
       
 
-      <button
+      <button className="control button is-small is-primary"
         onClick={() => {
           console.log({ addAttr });
           const newControls = [...controls, [addAttr, attrsData[addAttr].def]];
@@ -40,17 +42,14 @@ const BasicAttrEditor = props => {
           setAddAttr(unUsedAttrs.filter(key => key !== addAttr)[0]);
           props.changed(Object.fromEntries(newControls));
         }}
-      >
-        +
-      </button>
-      </>
+      >+</button>
+      </span>
       :null}
       {Object.entries(props.attrs).map(([key, value], i) => {
         return (
           <span key={key} className="attr-pair">
-            
             <span className="key-name">{key}</span>
-            <input 
+            <input className="input is-small    "
               onChange={e => {
                 controls[i][1] = e.target.value;
                 setControls(controls.slice());
@@ -60,7 +59,7 @@ const BasicAttrEditor = props => {
               value={value}
             />
             {attrsData[key].type==="color"?(<span className="color-box" style={{color:value}}>&#x2588;</span>):null}
-            {props.edited?(<button onClick={()=>{
+            {props.edited?(<button className="button is-small" onClick={()=>{
               const changedAttrs=removeAttributeFromShape(controls,key)
               props.changed(Object.fromEntries(changedAttrs))
               setControls(changedAttrs);

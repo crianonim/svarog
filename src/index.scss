@@ -10,44 +10,44 @@ body {
     -moz-osx-font-smoothing: grayscale;
   }
   
-  #root {
-  margin:2rem 5rem;
-  }
+  // #root {
+  // margin:2rem 5rem;
+  // }
   
-  code {
-    font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-      monospace;
-  }
+  // code {
+  //   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+  //     monospace;
+  // }
   
-  .header {
-    font-family: "Oswald", sans-serif;
-  }
-  .bordered {
-    border: $border
-  }
-  .margined {
-    margin:1px;
-  }
-  .invisible {
-    visibility: hidden;
-  }
-  button, select, input {
-    background: none;
-    border: $border;
-    font-family: "Oswald", sans-serif;
-    border-radius: 2px;
-    margin:1px;
-  }
-  button:hover {
-    background: black;
-    color:white;
-  }
-  button:disabled:hover {
-    background: none;
-    color: graytext;
-  }
-  input {
-  padding: 0 3px;
-  margin: 1px;
-  min-width: 1rem;
-  }
+  // .header {
+  //   font-family: "Oswald", sans-serif;
+  // }
+  // .bordered {
+  //   border: $border
+  // }
+  // .margined {
+  //   margin:1px;
+  // }
+  // .invisible {
+  //   visibility: hidden;
+  // }
+  // button, select, input {
+  //   background: none;
+  //   border: $border;
+  //   font-family: "Oswald", sans-serif;
+  //   border-radius: 2px;
+  //   margin:1px;
+  // }
+  // button:hover {
+  //   background: black;
+  //   color:white;
+  // }
+  // button:disabled:hover {
+  //   background: none;
+  //   color: graytext;
+  // }
+  // input {
+  // padding: 0 3px;
+  // margin: 1px;
+  // min-width: 1rem;
+  // }

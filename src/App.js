@@ -10,6 +10,7 @@ import SvgView from './SvgView.js';
 import AddShape from './AddShape.js';
 import Messages from './Messages.js';
 import CurrentShapePanel from './CurrentShapePanel.js';
+import ShapesList from "./ShapesList.js";
 
 const App = () => {
   useEffect(() => {
@@ -42,7 +43,6 @@ const App = () => {
     </header>
     <Messages  message={message} dismiss={()=>setMessage(null)}/>    
     <div className="block">
-
       <SvgView shapes={shapes} attrs={svgAttrs} setSelectedShape={setSelectedShape} />
       <BasicAttrEditor
         element="svg"
@@ -51,30 +51,31 @@ const App = () => {
         changed={attr => {
           setSvgAttrs(attr);
         }}
-        />
+      />
+
+    <div className="svg-data margined bordered">
+      <div className="flex-row">
+
+    <button className="button" onClick={()=>{
+      console.log("Create random SVG");
+      const cSvg=createRandomSVG();
+      console.log({cSvg});
+      setShapes(cSvg.shapes);
+      setSvgAttrs(cSvg.attributes);
+      setMessage("Random svg created.")
+    }}>Randomise</button>
+    
+       
+    </div>
+   
+     
+      </div>
+      <label> Add new shape</label> 
+      <AddShape addShape={(shape)=>{
+       setShapes([...shapes,{shape,attributes:defaultValues[shape],id:Date.now()}])
+      }} />
       <CurrentShapePanel/>
-      <div className="shapes-list">
-      {shapes.map( shape => (
-        <div key={shape.id} className={"flex-row " +(shape.id===selectedShape?"selected-shape":"")}>
-        <button  title="Delete Shape" onClick={()=>{
-          setShapes(shapes.filter(el=>el!==shape));
-        }}>x</button>
-        <ShapeItem  shape={shape} duplicate={(shape)=>{
-          const dup=Object.assign({},shape);
-          dup.id=Date.now();
-          let index=shapes.findIndex(el=>el===shape);
-          setShapes([...shapes.slice(0,index+1),dup,...shapes.slice(index+1)]);
-        }} selected={selectedShape===shape.id}
-        changed={(changedShape)=>{
-          shapes[shapes.findIndex((sh)=>sh===changedShape)]=changedShape;
-          setShapes(shapes.slice());
-        }}
-        shapeUp={moveShape(-1)}
-        shapeDown={moveShape(1)}
-        ></ShapeItem>
-        </div>
-      ))}
-       </div>
+      <ShapesList shapes={shapes} selectedShape={selectedShape} setShapes={setShapes} moveShape={moveShape}/>
      <div className="flex-column flex-grow bordered margined right-panel">
        {selectedShape?<div className="move-shape" onClick={()=>{
          const shape=shapes.find(el=>el.id===selectedShape);
@@ -101,27 +102,7 @@ const App = () => {
       </div>
      </div>
     </div>
-    <div className="svg-data margined bordered">
-      <div className="flex-row">
-
-    <button onClick={()=>{
-      console.log("Create random SVG");
-      const cSvg=createRandomSVG();
-      console.log({cSvg});
-      setShapes(cSvg.shapes);
-      setSvgAttrs(cSvg.attributes);
-      setMessage("Random svg created.")
-    }}>Randomise</button>
-      
-      
-    
-    
-    </div><label> Add new shape</label> 
-    <AddShape addShape={(shape)=>{
-       setShapes([...shapes,{shape,attributes:defaultValues[shape],id:Date.now()}])
-      }} />
-     
-      </div>
+   
     </div>
   );
 };
