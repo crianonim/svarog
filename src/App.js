@@ -75,7 +75,7 @@ const App = () => {
        setShapes([...shapes,{shape,attributes:defaultValues[shape],id:Date.now()}])
       }} />
       {selectedShape!==null && 
-      <CurrentShapePanel shape={shapes[selectedShape]} changed={(shape)=>{console.log("SH");shapes[selectedShape]=shape;setShapes([...shapes])}}/>
+      <CurrentShapePanel shape={shapes.find(el=>el.id===selectedShape)} changed={(shape)=>{console.log("SH");shapes[shapes.findIndex(el=>el.id===selectedShape)]=shape;setShapes([...shapes])}}/>
       }
       <ShapesList shapes={shapes} selectedShape={selectedShape} setShapes={setShapes} moveShape={moveShape}/>
       <div className="flex-column flex-grow bordered margined right-panel">
