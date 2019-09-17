@@ -69,7 +69,6 @@ const App = () => {
    
      
       </div>
-      <label> Add new shape</label> 
       <AddShape addShape={(shape)=>{
        setShapes([...shapes,{shape,attributes:defaultValues[shape],id:Date.now()}])
       }} />
