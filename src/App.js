@@ -10,6 +10,7 @@ import AddShape from './AddShape.js';
 import Messages from './Messages.js';
 import CurrentShapePanel from './CurrentShapePanel.js';
 import ShapesList from "./ShapesList.js";
+import SvgProperties from "./SvgProperties.js";
 
 const App = () => {
   useEffect(() => {
@@ -43,19 +44,15 @@ const App = () => {
     <Messages  message={message} dismiss={()=>setMessage(null)}/>    
     <div className="block">
       <SvgView shapes={shapes} attrs={svgAttrs} setSelectedShape={setSelectedShape} />
-      <BasicAttrEditor
-        element="svg"
-        edited="true"
-        attrs={svgAttrs}
-        changed={attr => {
+      <SvgProperties attrs={svgAttrs} changed={attr => {
           setSvgAttrs(attr);
-        }}
-      />
+        }}/>
+      
 
     <div className="svg-data margined bordered">
       <div className="flex-row">
 
-    <button className="button" onClick={()=>{
+    <button className="button is-small" onClick={()=>{
       console.log("Create random SVG");
       const cSvg=createRandomSVG();
       console.log({cSvg});
