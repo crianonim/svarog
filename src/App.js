@@ -74,7 +74,9 @@ const App = () => {
       <AddShape addShape={(shape)=>{
        setShapes([...shapes,{shape,attributes:defaultValues[shape],id:Date.now()}])
       }} />
-      <CurrentShapePanel/>
+      {selectedShape!==null && 
+      <CurrentShapePanel shape={shapes[selectedShape]} changed={(shape)=>{console.log("SH");shapes[selectedShape]=shape;setShapes([...shapes])}}/>
+      }
       <ShapesList shapes={shapes} selectedShape={selectedShape} setShapes={setShapes} moveShape={moveShape}/>
       <div className="flex-column flex-grow bordered margined right-panel">
     
