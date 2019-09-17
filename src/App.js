@@ -26,6 +26,7 @@ const App = () => {
   const [selectedShape, setSelectedShape] = useState(null);
   const [saved,setSaved] = useState(localStorage.getItem('save'));
   const [message,setMessage] = useState(null)
+  const [svgPropertiesSelected,setSvgPropertiesSelected]=useState(false);
 
   // helpers
   const moveShape = (step) => (movedShape) => {
@@ -44,9 +45,11 @@ const App = () => {
     <Messages  message={message} dismiss={()=>setMessage(null)}/>    
     <div className="block">
       <SvgView shapes={shapes} attrs={svgAttrs} setSelectedShape={setSelectedShape} />
-      <SvgProperties attrs={svgAttrs} changed={attr => {
-          setSvgAttrs(attr);
-        }}/>
+      <span onClick={()=>{setSelectedShape(null);setSvgPropertiesSelected(true)}}>
+       <SvgProperties attrs={svgAttrs} changed={attr => {
+        setSvgAttrs(attr);
+      }}/>
+      </span>
       
 
     <div className="svg-data margined bordered">
@@ -72,7 +75,10 @@ const App = () => {
       {selectedShape!==null && 
       <CurrentShapePanel shape={shapes.find(el=>el.id===selectedShape)} changed={(shape)=>{console.log("SH");shapes[shapes.findIndex(el=>el.id===selectedShape)]=shape;setShapes([...shapes])}}/>
       }
-      <ShapesList shapes={shapes} setSelectedShape={setSelectedShape} selectedShape={selectedShape} setShapes={setShapes} moveShape={moveShape}/>
+       {svgPropertiesSelected && 
+      <CurrentShapePanel shape={ {shape:'svg',attributes:svgAttrs} } changed={(shape)=>{console.log("SH")}}/>
+      }
+      <ShapesList shapes={shapes} setSelectedShape={(shape)=>{setSelectedShape(shape);setSvgPropertiesSelected(false)}} selectedShape={selectedShape} setShapes={setShapes} moveShape={moveShape}/>
       <div className="flex-column flex-grow bordered margined right-panel">
     
        {/* {selectedShape?<div className="move-shape" onClick={()=>{
