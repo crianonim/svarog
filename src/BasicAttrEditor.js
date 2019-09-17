@@ -16,8 +16,8 @@ const BasicAttrEditor = ({attrs,element,changed}) => {
   const [addAttr, setAddAttr] = useState(unUsedAttrs[0]);
   // console.log(element, unUsedAttrs);
   return (
-    <div className="flex-row flex-wrap attr-wrapper block">
-      <span>{element}</span>
+    <div className="flex-row flex-wrap  block">
+      <span>Add property: &nbsp;</span>
       <span className="field has-addons">
       <span className="control select is-small">
        <select 
@@ -55,7 +55,7 @@ const BasicAttrEditor = ({attrs,element,changed}) => {
                 console.log("NV",{controls})
                 changed(Object.fromEntries(controls));
             }}
-            style={{ width: (value+"").length + "rem" }}
+            style={{ width: ((value+"").length+1) + "rem" }}
               value={value}
             />
             {attrsData[key].type==="color"?(<span className="color-box" style={{color:value}}>&#x2588;</span>):null}
