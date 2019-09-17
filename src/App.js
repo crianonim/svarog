@@ -11,6 +11,7 @@ import Messages from './Messages.js';
 import CurrentShapePanel from './CurrentShapePanel.js';
 import ShapesList from "./ShapesList.js";
 import SvgProperties from "./SvgProperties.js";
+import SaveLoadPanel from "./SaveLoadPanel.js";
 
 const App = () => {
   useEffect(() => {
@@ -47,21 +48,24 @@ const App = () => {
       <SvgView shapes={shapes} attrs={svgAttrs} setSelectedShape={(shape)=>{setSelectedShape(shape);setSvgPropertiesSelected(false)}} />
       
       
-
-    <div className="block">
-      <div className="flex-row">
-       <button className="button is-small is-warning" onClick={()=>{
-        const cSvg=createRandomSVG();
-        setShapes(cSvg.shapes);
-        setSvgAttrs(cSvg.attributes);
-        setMessage("Random svg created.")
-       }}>Randomise</button>
-       <button className="button is-small is-danger" onClick={()=>setShapes([])}>Clear</button>
-      <AddShape addShape={(shape)=>{
-       setShapes([...shapes,{shape,attributes:defaultValues[shape],id:Date.now()}])
-      }} />    
-    </div>
+    <div className="panel">
+     <div className="panel-heading">Transform SVG</div>
+      
+        <div className="panel-block">
+          <div className="flex-row">
+          <button className="button is-small is-warning has-hmargin-med" onClick={()=>{
+            const cSvg=createRandomSVG();
+            setShapes(cSvg.shapes);
+            setSvgAttrs(cSvg.attributes);
+            setMessage("Random svg created.")
+          }}>Randomise</button>
+          <button className="button is-small is-danger has-hmargin-med" onClick={()=>setShapes([])}>Clear</button>
+          <AddShape addShape={(shape)=>{
+          setShapes([...shapes,{shape,attributes:defaultValues[shape],id:Date.now()}])
+        }} />    
+        </div>
    
+    </div>
      
       </div>
 
@@ -71,13 +75,20 @@ const App = () => {
        {svgPropertiesSelected && 
       <CurrentShapePanel shape={ {shape:'svg',attributes:svgAttrs} } changed={(svg)=>{setSvgAttrs(svg.attributes)}}/>
       }
-
-<span onClick={()=>{setSelectedShape(null);setSvgPropertiesSelected(true)}}>
-       <SvgProperties isSelected={svgPropertiesSelected} attrs={svgAttrs} changed={attr => {
-        setSvgAttrs(attr);
-      }}/>
-      </span>
-      <ShapesList shapes={shapes} setSelectedShape={(shape)=>{setSelectedShape(shape);setSvgPropertiesSelected(false)}} selectedShape={selectedShape} setShapes={setShapes} moveShape={moveShape}/>
+      
+      <div className="panel">
+       <div className="panel-heading">Select element to edit</div>
+       <div className="panel-block">
+        <div>
+         <span onClick={()=>{setSelectedShape(null);setSvgPropertiesSelected(true)}}>
+          <SvgProperties isSelected={svgPropertiesSelected} attrs={svgAttrs} changed={attr => {
+          setSvgAttrs(attr);
+          }}/>
+         </span>
+         <ShapesList shapes={shapes} setSelectedShape={(shape)=>{setSelectedShape(shape);setSvgPropertiesSelected(false)}} selectedShape={selectedShape} setShapes={setShapes} moveShape={moveShape}/>
+        </div>
+       </div>
+      </div>
       <div className="flex-column flex-grow bordered margined right-panel">
     
        {/* {selectedShape?<div className="move-shape" onClick={()=>{
@@ -89,22 +100,7 @@ const App = () => {
     
       <CodePanel shapes={shapes} svgAttrs={svgAttrs} />
       <InputTextArea msg={setMessage} change={setShapes} />
-      <div>
-        <button onClick={ ()=>{
-          localStorage.setItem("save",JSON.stringify({attributes:svgAttrs,shapes}));
-          setSaved(true);
-          setMessage("SVG shape saved.");
-         }
-        }>Save</button>
-        <button onClick={()=>{
-          const obj=JSON.parse(localStorage.getItem("save"));
-          if (obj){
-            setShapes(obj.shapes);
-            setSvgAttrs(obj.attributes);
-            setMessage("SVG shape loaded.")
-          }
-        }} disabled={!saved} >Load</button>
-      </div>
+      <SaveLoadPanel saved={saved} setSaved={setSaved} setMessage={setMessage} setShapes={setShapes} setSvgAttrs={setSvgAttrs} shapes={shapes} svgAttrs={svgAttrs}/>
      </div>
     </div>
    
