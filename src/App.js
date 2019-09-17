@@ -76,12 +76,15 @@ const App = () => {
       }} />
       <CurrentShapePanel/>
       <ShapesList shapes={shapes} selectedShape={selectedShape} setShapes={setShapes} moveShape={moveShape}/>
-     <div className="flex-column flex-grow bordered margined right-panel">
-       {selectedShape?<div className="move-shape" onClick={()=>{
+      <div className="flex-column flex-grow bordered margined right-panel">
+    
+       {/* {selectedShape?<div className="move-shape" onClick={()=>{
          const shape=shapes.find(el=>el.id===selectedShape);
           shape.attributes.cy-=10;
          setShapes(shapes.slice())
-  }}></div>:null}
+       }}> */}
+      {/* </div>:null} */}
+    
       <CodePanel shapes={shapes} svgAttrs={svgAttrs} />
       <InputTextArea msg={setMessage} change={setShapes} />
       <div>

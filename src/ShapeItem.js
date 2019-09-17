@@ -1,6 +1,7 @@
 import React,{useState} from 'react';
 import BasicAttrEditor from './BasicAttrEditor.js';
 import './ShapeItem.css';
+import AttrList from './AttrList.js';
 
 const ShapeItem = (props) => {
     const shape = props.shape;
@@ -23,12 +24,9 @@ const ShapeItem = (props) => {
                 props.shapeDown(shape);
               }}
             >&#x21E9;</button>
-            {edited?
-            <button title="Disable attribute editing" className="edit-enable-btn" onClick={()=>setEdited(false)}>--</button>:
-            <button title="Enable attribute editing" className="edit-enable-btn" onClick={()=>setEdited(true)}>...</button>
-          }
+           
         </div>
-        <BasicAttrEditor
+        <AttrList
           element={shape.shape}
           attrs={shape.attributes}
           edited={edited}
