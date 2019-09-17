@@ -1,13 +1,14 @@
 import React from 'react';
 import ShapeItem from './ShapeItem';
 
-const ShapesList = ({shapes,selectedShape,setShapes,moveShape}) => {
+const ShapesList = ({shapes,selectedShape,setShapes,setSelectedShape,moveShape}) => {
     return (<>
      <div className="shapes-list">
       {shapes.map( shape => (
         <div key={shape.id} className={"flex-row " +(shape.id===selectedShape?"selected-shape":"")}>
         <button  title="Delete Shape" onClick={()=>{
           setShapes(shapes.filter(el=>el!==shape));
+          setSelectedShape(null)
         }}>x</button>
         <ShapeItem  shape={shape} duplicate={(shape)=>{
           const dup=Object.assign({},shape);
