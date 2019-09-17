@@ -26,7 +26,7 @@ const App = () => {
   const [selectedShape, setSelectedShape] = useState(null);
   const [saved,setSaved] = useState(localStorage.getItem('save'));
   const [message,setMessage] = useState(null)
-  const [svgPropertiesSelected,setSvgPropertiesSelected]=useState(false);
+  const [svgPropertiesSelected,setSvgPropertiesSelected]=useState(true);
 
   // helpers
   const moveShape = (step) => (movedShape) => {
@@ -44,40 +44,39 @@ const App = () => {
     </header>
     <Messages  message={message} dismiss={()=>setMessage(null)}/>    
     <div className="block">
-      <SvgView shapes={shapes} attrs={svgAttrs} setSelectedShape={setSelectedShape} />
-      <span onClick={()=>{setSelectedShape(null);setSvgPropertiesSelected(true)}}>
-       <SvgProperties isSelected={svgPropertiesSelected} attrs={svgAttrs} changed={attr => {
-        setSvgAttrs(attr);
-      }}/>
-      </span>
+      <SvgView shapes={shapes} attrs={svgAttrs} setSelectedShape={(shape)=>{setSelectedShape(shape);setSvgPropertiesSelected(false)}} />
+      
       
 
-    <div className="svg-data margined bordered">
+    <div className="block">
       <div className="flex-row">
-
-    <button className="button is-small" onClick={()=>{
-      console.log("Create random SVG");
-      const cSvg=createRandomSVG();
-      console.log({cSvg});
-      setShapes(cSvg.shapes);
-      setSvgAttrs(cSvg.attributes);
-      setMessage("Random svg created.")
-    }}>Randomise</button>
-    
-       
+       <button className="button is-small is-warning" onClick={()=>{
+        const cSvg=createRandomSVG();
+        setShapes(cSvg.shapes);
+        setSvgAttrs(cSvg.attributes);
+        setMessage("Random svg created.")
+       }}>Randomise</button>
+       <button className="button is-small is-danger" onClick={()=>setShapes([])}>Clear</button>
+      <AddShape addShape={(shape)=>{
+       setShapes([...shapes,{shape,attributes:defaultValues[shape],id:Date.now()}])
+      }} />    
     </div>
    
      
       </div>
-      <AddShape addShape={(shape)=>{
-       setShapes([...shapes,{shape,attributes:defaultValues[shape],id:Date.now()}])
-      }} />
+
       {selectedShape!==null && 
-      <CurrentShapePanel shape={shapes.find(el=>el.id===selectedShape)} changed={(shape)=>{console.log("SH");shapes[shapes.findIndex(el=>el.id===selectedShape)]=shape;setShapes([...shapes])}}/>
+      <CurrentShapePanel key={selectedShape} shape={shapes.find(el=>el.id===selectedShape)} changed={(shape)=>{shapes[shapes.findIndex(el=>el.id===selectedShape)]=shape;setShapes([...shapes])}}/>
       }
        {svgPropertiesSelected && 
-      <CurrentShapePanel shape={ {shape:'svg',attributes:svgAttrs} } changed={(shape)=>{console.log("SH")}}/>
+      <CurrentShapePanel shape={ {shape:'svg',attributes:svgAttrs} } changed={(svg)=>{setSvgAttrs(svg.attributes)}}/>
       }
+
+<span onClick={()=>{setSelectedShape(null);setSvgPropertiesSelected(true)}}>
+       <SvgProperties isSelected={svgPropertiesSelected} attrs={svgAttrs} changed={attr => {
+        setSvgAttrs(attr);
+      }}/>
+      </span>
       <ShapesList shapes={shapes} setSelectedShape={(shape)=>{setSelectedShape(shape);setSvgPropertiesSelected(false)}} selectedShape={selectedShape} setShapes={setShapes} moveShape={moveShape}/>
       <div className="flex-column flex-grow bordered margined right-panel">
     

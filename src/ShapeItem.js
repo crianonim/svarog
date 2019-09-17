@@ -2,7 +2,7 @@ import React from 'react';
 import './ShapeItem.css';
 import AttrList from './AttrList.js';
 
-const ShapeItem = ({shape,duplicate,shapeUp,shapeDown,setSelectedShape,changed}) => {
+const ShapeItem = ({shape,duplicate,shapeUp,shapeDown,setSelectedShape}) => {
     return (
      <div key={shape.id} className="flex-row shape-item " >
         <div className="move-up-down-buttons">
@@ -28,10 +28,6 @@ const ShapeItem = ({shape,duplicate,shapeUp,shapeDown,setSelectedShape,changed})
         <AttrList 
           element={shape.shape}
           attrs={shape.attributes}
-          changed={attrs => {
-            shape.attributes=attrs;
-            changed(shape);
-          }}
           />
         </span>
        

@@ -16,10 +16,7 @@ const ShapesList = ({shapes,selectedShape,setShapes,setSelectedShape,moveShape})
           let index=shapes.findIndex(el=>el===shape);
           setShapes([...shapes.slice(0,index+1),dup,...shapes.slice(index+1)]);
         }} selected={selectedShape===shape.id}
-        changed={(changedShape)=>{
-          shapes[shapes.findIndex((sh)=>sh===changedShape)]=changedShape;
-          setShapes(shapes.slice());
-        }}
+        
         shapeUp={moveShape(-1)}
         shapeDown={moveShape(1)}
         ></ShapeItem>

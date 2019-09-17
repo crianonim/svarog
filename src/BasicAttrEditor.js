@@ -6,6 +6,7 @@ import {attrsData} from './lib/helper.js';
 
 const BasicAttrEditor = ({attrs,element,changed}) => {
   const [controls, setControls] = useState(Object.entries(attrs));
+  console.log({controls})
   const validAttrs = Object.entries(attrsData)
    .filter( ([_,attr])=>!attr.el || attr.el.includes(element))
    .map(([key,_])=>key);
@@ -22,7 +23,7 @@ const BasicAttrEditor = ({attrs,element,changed}) => {
        <select 
         value={addAttr}
         onChange={e => {
-          console.log(e.target.value);
+          console.log("BAE",e.target.value);
           setAddAttr(e.target.value);
        }}
       >
@@ -51,6 +52,7 @@ const BasicAttrEditor = ({attrs,element,changed}) => {
               onChange={e => {
                 controls[i][1] = e.target.value;
                 setControls(controls.slice());
+                console.log("NV",{controls})
                 changed(Object.fromEntries(controls));
             }}
             style={{ width: (value+"").length + "rem" }}
