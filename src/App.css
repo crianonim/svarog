@@ -53,3 +53,6 @@ h2 {
 .move-up-down-buttons {
   display: flex;
 }
+.align-self-center {
+  align-self: center;
+}
