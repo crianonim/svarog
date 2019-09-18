@@ -56,3 +56,13 @@ h2 {
 .align-self-center {
   align-self: center;
 }
+main .panel {
+  
+  width:600px;
+  max-width: 100%;
+}
+@media (min-width:1200px) {
+  main .panel {
+    margin-right: 1rem;
+  }
+}

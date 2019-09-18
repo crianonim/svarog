@@ -7,10 +7,10 @@
     padding: 1rem;
 }
 .svg-wrapper {
-    width:400px;
-    max-width: 100%;
+    width: 100%;
     height:400px;
     display:flex;
+    align-self: center;
     align-items: center;
     justify-content: center;
 }
