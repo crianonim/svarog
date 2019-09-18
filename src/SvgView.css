@@ -1,8 +1,16 @@
-.Svg-view {
-    width:200px;
+ .Svg-view {
+    /* width:200px; */
     border: 1px solid grey;
-   }
+   } 
 .svg-display {
     border: 1px solid black;
     padding: 1rem;
+}
+.svg-wrapper {
+    width:400px;
+    max-width: 100%;
+    height:400px;
+    display:flex;
+    align-items: center;
+    justify-content: center;
 }

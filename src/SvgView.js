@@ -19,14 +19,17 @@ const SvgView = (props) => {
             {/* <a onClick={setZoomHandler(800)}>800px</a> */}
           </p>
          <div className="panel-block">
-          <svg {...props.attrs} className="Svg-view" onClick={console.log} style={{width:zoom}}>
-        {props.shapes.map((shape, i) => {
-          const ShapeType = shape.shape;
-          return <ShapeType data-id={shape.id} onClick={(e)=>{
-            props.setSelectedShape(shape.id)
-          }} key={i} {...shape.attributes} />;
-        })}
-          </svg>
+           <div className="svg-wrapper">
+
+           <svg {...props.attrs} className="Svg-view" onClick={console.log} style={{width:zoom,height:zoom}}>
+          {props.shapes.map((shape, i) => {
+            const ShapeType = shape.shape;
+            return <ShapeType data-id={shape.id} onClick={(e)=>{
+              props.setSelectedShape(shape.id)
+            }} key={i} {...shape.attributes} />;
+          })}
+           </svg>
+          </div>
          </div>
         </div>
     )
