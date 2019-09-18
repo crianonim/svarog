@@ -6,6 +6,7 @@ import {attrsData} from './lib/helper.js';
 
 const BasicAttrEditor = ({attrs,element,changed}) => {
   const [controls, setControls] = useState(Object.entries(attrs));
+  console.log({controls})
   const validAttrs = Object.entries(attrsData)
    .filter( ([_,attr])=>!attr.el || attr.el.includes(element))
    .map(([key,_])=>key);
@@ -15,14 +16,14 @@ const BasicAttrEditor = ({attrs,element,changed}) => {
   const [addAttr, setAddAttr] = useState(unUsedAttrs[0]);
   // console.log(element, unUsedAttrs);
   return (
-    <div className="flex-row flex-wrap attr-wrapper block">
-      <span>{element}</span>
+    <div className="flex-row flex-wrap  block">
+      <span>Add property: &nbsp;</span>
       <span className="field has-addons">
       <span className="control select is-small">
        <select 
         value={addAttr}
         onChange={e => {
-          console.log(e.target.value);
+          console.log("BAE",e.target.value);
           setAddAttr(e.target.value);
        }}
       >
@@ -51,9 +52,10 @@ const BasicAttrEditor = ({attrs,element,changed}) => {
               onChange={e => {
                 controls[i][1] = e.target.value;
                 setControls(controls.slice());
+                console.log("NV",{controls})
                 changed(Object.fromEntries(controls));
             }}
-            style={{ width: (value+"").length + "rem" }}
+            style={{ width: ((value+"").length+1) + "rem" }}
               value={value}
             />
             {attrsData[key].type==="color"?(<span className="color-box" style={{color:value}}>&#x2588;</span>):null}

@@ -22,6 +22,7 @@ h2 {
 .flex-column {
   display: flex;
   flex-direction: column;
+  width:100%
 }
 .flex-grow {
   flex-grow: 1;
@@ -40,4 +41,36 @@ h2 {
 }
 .title-letters {
   color: red;
+}
+.has-hmargin-1 {
+  margin-left: 1px;
+  margin-right: 1px;
+}
+.has-hmargin-med {
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+}
+.has-vmargin-med {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+
+}
+.move-up-down-buttons {
+  display: flex;
+}
+.align-self-center {
+  align-self: center;
+}
+main .panel {
+  
+  width:600px;
+  max-width: 100%;
+}
+.invisible {
+  visibility: hidden;
+}
+@media (min-width:1200px) {
+  main .panel {
+    margin-right: 1rem;
+  }
 }

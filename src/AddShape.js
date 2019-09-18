@@ -5,7 +5,7 @@ import { defaultValues } from "./lib/helper.js";
 const AddShape = props => {
   const [newShape, setNewShape] = useState("circle");
   return (
-    <span className="field has-addons">
+    <span className="field has-addons has-hmargin-med ">
       <span className="control">
         <span className="select is-small">
 
