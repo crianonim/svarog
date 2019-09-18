@@ -82,7 +82,7 @@ const App = () => {
             setSvgAttrs(cSvg.attributes);
             setMessage("Random svg created.")
           }}>Randomise</button>
-           <button className="button is-small is-danger has-hmargin-med" onClick={()=>setShapes([])}>Clear</button>
+           <button className="button is-small is-danger has-hmargin-med" onClick={()=>{setShapes([]);setSvgPropertiesSelected(true);setSelectedShape(null)}}>Clear</button>
            <AddShape addShape={(shape)=>{
           setShapes([...shapes,{shape,attributes:defaultValues[shape],id:Date.now()}])
         }} />    
