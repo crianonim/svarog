@@ -1,5 +1,7 @@
 import React from 'react';
 import ShapeItem from './ShapeItem';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+import { faTrash } from '@fortawesome/free-solid-svg-icons'
 
 const ShapesList = ({shapes,selectedShape,setShapes,setSelectedShape,moveShape}) => {
     return (<>
@@ -9,7 +11,7 @@ const ShapesList = ({shapes,selectedShape,setShapes,setSelectedShape,moveShape})
         <button className="button is-small is-danger " title="Delete Shape" onClick={()=>{
           setShapes(shapes.filter(el=>el!==shape));
           setSelectedShape(null)
-        }}>x</button>
+        }}><FontAwesomeIcon icon={faTrash}/></button>
         <ShapeItem setSelectedShape={setSelectedShape} shape={shape} duplicate={(shape)=>{
           const dup=Object.assign({},shape);
           dup.id=Date.now();

@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import './BasicAttrEditor.css';
 import {attrsData} from './lib/helper.js';
-
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+import { faTrash } from '@fortawesome/free-solid-svg-icons'
 
 
 const BasicAttrEditor = ({attrs,element,changed}) => {
@@ -66,12 +67,12 @@ const BasicAttrEditor = ({attrs,element,changed}) => {
               </span>
  
              <span className="control">
-              <button className="button is-small" onClick={()=>{
+              <button className="button is-small is-danger" onClick={()=>{
                 const changedAttrs=removeAttributeFromShape(controls,key)
                 changed(Object.fromEntries(changedAttrs))
                 setControls(changedAttrs);
               }
-              }>x</button>
+              }><FontAwesomeIcon icon={faTrash}/></button>
             </span>
            </span>
           </span>
