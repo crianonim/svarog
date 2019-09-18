@@ -38,15 +38,15 @@ const App = () => {
           setShapes(shapes.slice())
   }
   return (
-    <div className="">
-    <header>
-      <h1><span className="title-letters">Sv</span>aro<span className="title-letters" >g</span></h1>
-      <h2>A slavic deity of celestial fire and blacksmithing that will help you create SVGs.</h2>
+    <div className="container">
+    <header className="hero">
+      <h1 className="title"><span className="title-letters">Sv</span>aro<span className="title-letters" >g</span></h1>
+      <h2 className="subtitle">A slavic deity of celestial fire and blacksmithing that will help you create SVGs.</h2>
     </header>
    
     <Messages  message={message} dismiss={()=>setMessage(null)}/>    
    
-    <main className="block flex-wrap flex-row container">
+    <main className="block flex-wrap flex-row ">
       <SvgView shapes={shapes} attrs={svgAttrs} setSelectedShape={(shape)=>{setSelectedShape(shape);setSvgPropertiesSelected(false)}} />
         
 
