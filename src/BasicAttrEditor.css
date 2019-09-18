@@ -4,4 +4,8 @@
    .attr-pair > * {
     margin:auto 2px;
    }
-   
+.color-box {
+    height:100%;
+    width:1rem;
+    display: inline-block;
+}   

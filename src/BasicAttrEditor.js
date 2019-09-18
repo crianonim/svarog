@@ -19,52 +19,61 @@ const BasicAttrEditor = ({attrs,element,changed}) => {
     <div className="flex-row flex-wrap  block">
       <span>Add property: &nbsp;</span>
       <span className="field has-addons">
-      <span className="control select is-small">
-       <select 
-        value={addAttr}
-        onChange={e => {
-          console.log("BAE",e.target.value);
-          setAddAttr(e.target.value);
-       }}
-      >
-        {unUsedAttrs.map(key => (
-          <option key={key}>{key}</option>
-          ))}
-       </select>
-      </span>
+       <span className="control">
+         <span className="select   is-small">
+           <select
+            value={addAttr}
+            onChange={e => {
+              console.log("BAE",e.target.value);
+              setAddAttr(e.target.value);
+            }}>
+            {unUsedAttrs.map(key => (
+              <option key={key}>{key}</option>
+              ))}
+          </select>
+         </span>
+       </span>
       
-
-      <button className="control button is-small is-primary"
-        onClick={() => {
-          console.log({ addAttr });
-          const newControls = [...controls, [addAttr, attrsData[addAttr].def]];
-          setControls(newControls);
-          setAddAttr(unUsedAttrs.filter(key => key !== addAttr)[0]);
-          changed(Object.fromEntries(newControls));
-        }}
-      >+</button>
+      <span className="control">
+        <button className="button is-small is-primary"
+          onClick={() => {
+            console.log({ addAttr });
+            const newControls = [...controls, [addAttr, attrsData[addAttr].def]];
+            setControls(newControls);
+            setAddAttr(unUsedAttrs.filter(key => key !== addAttr)[0]);
+            changed(Object.fromEntries(newControls));
+          }}
+          >+</button>
+        </span>
       </span>
       {Object.entries(attrs).map(([key, value], i) => {
         return (
-          <span key={key} className="attr-pair">
-            <span className="key-name">{key}</span>
-            <input className="input is-small    "
-              onChange={e => {
-                controls[i][1] = e.target.value;
-                setControls(controls.slice());
-                console.log("NV",{controls})
-                changed(Object.fromEntries(controls));
-            }}
-            style={{ width: ((value+"").length+1) + "rem" }}
-              value={value}
-            />
-            {attrsData[key].type==="color"?(<span className="color-box" style={{color:value}}>&#x2588;</span>):null}
-          <button className="button is-small" onClick={()=>{
-              const changedAttrs=removeAttributeFromShape(controls,key)
-              changed(Object.fromEntries(changedAttrs))
-              setControls(changedAttrs);
+          <span key={key} className="flex-row has-hmargin-med">
+            <span className="key-name">{key}:  </span>
+            <span className="field has-addons">
+             <span className="control">
+              <input className="input is-small    "
+                onChange={e => {
+                  controls[i][1] = e.target.value;
+                  setControls(controls.slice());
+                  console.log("NV",{controls})
+                  changed(Object.fromEntries(controls));
+                }}
+                style={{ width: ((value+"").length+1) + "rem" }}
+                value={value}
+                />
+              {attrsData[key].type==="color"?(<div className="color-box" style={{backgroundColor:value}}></div>):null}
+              </span>
+ 
+             <span className="control">
+              <button className="button is-small" onClick={()=>{
+                const changedAttrs=removeAttributeFromShape(controls,key)
+                changed(Object.fromEntries(changedAttrs))
+                setControls(changedAttrs);
               }
-            }>x</button>
+              }>x</button>
+            </span>
+           </span>
           </span>
 
         );
