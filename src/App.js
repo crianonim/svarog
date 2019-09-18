@@ -38,44 +38,18 @@ const App = () => {
           setShapes(shapes.slice())
   }
   return (
-    <div className="">
-    <header>
-      <h1><span className="title-letters">Sv</span>aro<span className="title-letters" >g</span></h1>
-      <h2>A slavic deity of celestial fire and blacksmithing that will help you create SVGs.</h2>
+    <div className="container">
+    <header className="hero">
+      <h1 className="title"><span className="title-letters">Sv</span>aro<span className="title-letters" >g</span></h1>
+      <h2 className="subtitle">A slavic deity of celestial fire and blacksmithing that will help you create SVGs.</h2>
     </header>
-    <Messages  message={message} dismiss={()=>setMessage(null)}/>    
-    <div className="block">
-      <SvgView shapes={shapes} attrs={svgAttrs} setSelectedShape={(shape)=>{setSelectedShape(shape);setSvgPropertiesSelected(false)}} />
-      
-      
-    <div className="panel">
-     <div className="panel-heading">Transform SVG</div>
-      
-        <div className="panel-block">
-          <div className="flex-row">
-          <button className="button is-small is-warning has-hmargin-med" onClick={()=>{
-            const cSvg=createRandomSVG();
-            setShapes(cSvg.shapes);
-            setSvgAttrs(cSvg.attributes);
-            setMessage("Random svg created.")
-          }}>Randomise</button>
-          <button className="button is-small is-danger has-hmargin-med" onClick={()=>setShapes([])}>Clear</button>
-          <AddShape addShape={(shape)=>{
-          setShapes([...shapes,{shape,attributes:defaultValues[shape],id:Date.now()}])
-        }} />    
-        </div>
    
-    </div>
-     
-      </div>
+    <Messages  message={message} dismiss={()=>setMessage(null)}/>    
+   
+    <main className="block flex-wrap flex-row ">
+      <SvgView shapes={shapes} attrs={svgAttrs} setSelectedShape={(shape)=>{setSelectedShape(shape);setSvgPropertiesSelected(false)}} />
+        
 
-      {selectedShape!==null && 
-      <CurrentShapePanel key={selectedShape} shape={shapes.find(el=>el.id===selectedShape)} changed={(shape)=>{shapes[shapes.findIndex(el=>el.id===selectedShape)]=shape;setShapes([...shapes])}}/>
-      }
-       {svgPropertiesSelected && 
-      <CurrentShapePanel shape={ {shape:'svg',attributes:svgAttrs} } changed={(svg)=>{setSvgAttrs(svg.attributes)}}/>
-      }
-      
       <div className="panel">
        <div className="panel-heading">Select element to edit</div>
        <div className="panel-block">
@@ -89,22 +63,43 @@ const App = () => {
         </div>
        </div>
       </div>
-      <div className="flex-column flex-grow bordered margined right-panel">
-    
-       {/* {selectedShape?<div className="move-shape" onClick={()=>{
-         const shape=shapes.find(el=>el.id===selectedShape);
-          shape.attributes.cy-=10;
-         setShapes(shapes.slice())
-       }}> */}
-      {/* </div>:null} */}
-    
+
+      
+      {selectedShape!==null && 
+      <CurrentShapePanel key={selectedShape} shape={shapes.find(el=>el.id===selectedShape)} changed={(shape)=>{shapes[shapes.findIndex(el=>el.id===selectedShape)]=shape;setShapes([...shapes])}}/>
+      }
+       {svgPropertiesSelected && 
+      <CurrentShapePanel shape={ {shape:'svg',attributes:svgAttrs} } changed={(svg)=>{setSvgAttrs(svg.attributes)}}/>
+      }
+
+      <div className="panel">
+      <div className="panel-heading">Transform SVG</div>
+        <div className="panel-block">
+          <div className="flex-row">
+           <button className="button is-small is-warning has-hmargin-med" onClick={()=>{
+            const cSvg=createRandomSVG();
+            setShapes(cSvg.shapes);
+            setSvgAttrs(cSvg.attributes);
+            setMessage("Random svg created.")
+          }}>Randomise</button>
+           <button className="button is-small is-danger has-hmargin-med" onClick={()=>{setShapes([]);setSvgPropertiesSelected(true);setSelectedShape(null)}}>Clear</button>
+           <AddShape addShape={(shape)=>{
+          setShapes([...shapes,{shape,attributes:defaultValues[shape],id:Date.now()}])
+        }} />    
+         </div>
+        </div>
+      </div>
+         
       <CodePanel shapes={shapes} svgAttrs={svgAttrs} />
+
       <InputTextArea msg={setMessage} change={setShapes} />
+
       <SaveLoadPanel saved={saved} setSaved={setSaved} setMessage={setMessage} setShapes={setShapes} setSvgAttrs={setSvgAttrs} shapes={shapes} svgAttrs={svgAttrs}/>
-     </div>
+     
+     </main>
+
     </div>
    
-    </div>
   );
 };
 
