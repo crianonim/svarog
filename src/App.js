@@ -77,6 +77,7 @@ const App = () => {
         <div className="panel-block">
           <div className="flex-row">
            <button className="button is-small is-warning has-hmargin-med" onClick={()=>{
+             setSelectedShape(null);
             const cSvg=createRandomSVG();
             setShapes(cSvg.shapes);
             setSvgAttrs(cSvg.attributes);
