@@ -1,0 +1,1123 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot 1`] = `
+<div
+  className="container"
+>
+  <header
+    className="hero"
+  >
+    <h1
+      className="title"
+    >
+      <span
+        className="title-letters"
+      >
+        Sv
+      </span>
+      aro
+      <span
+        className="title-letters"
+      >
+        g
+      </span>
+    </h1>
+    <h2
+      className="subtitle"
+    >
+      A slavic deity of celestial fire and blacksmithing that will help you create SVGs.
+    </h2>
+  </header>
+  <div
+    className=" has-vmargin-med invisible"
+    onClick={[Function]}
+  >
+    <p
+      className="message message-type-"
+    >
+      
+    </p>
+  </div>
+  <main
+    className="block flex-wrap flex-row "
+  >
+    <div
+      className="panel"
+    >
+      <div
+        className="panel-heading"
+      >
+        Your SVG
+      </div>
+      <p
+        className="panel-tabs"
+      >
+        <span
+          className="align-self-center"
+        >
+          Zoom:
+        </span>
+        <a
+          className=""
+          onClick={[Function]}
+        >
+          100p
+        </a>
+        <a
+          className=""
+          onClick={[Function]}
+        >
+          200px
+        </a>
+        <a
+          className="is-active"
+          onClick={[Function]}
+        >
+          400px
+        </a>
+      </p>
+      <div
+        className="panel-block"
+      >
+        <div
+          className="svg-wrapper"
+        >
+          <svg
+            className="Svg-view"
+            onClick={[Function]}
+            style={
+              Object {
+                "height": 400,
+                "width": 400,
+              }
+            }
+            viewBox="0 0 720 720"
+          >
+            <circle
+              cx={151}
+              cy={132}
+              data-id={0}
+              fill="red"
+              onClick={[Function]}
+              r={52}
+            />
+            <circle
+              cx={101}
+              cy={120}
+              data-id={1}
+              fill="pink"
+              onClick={[Function]}
+              r={40}
+            />
+            <circle
+              cx={601}
+              cy={420}
+              data-id={2}
+              fill="green"
+              onClick={[Function]}
+              r={140}
+            />
+            <rect
+              data-id={3}
+              height={200}
+              onClick={[Function]}
+              width={140}
+              x={40}
+              y={320}
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+    <div
+      className="panel"
+    >
+      <div
+        className="panel-heading"
+      >
+        Select element to edit
+      </div>
+      <div
+        className="panel-block"
+      >
+        <div>
+          <span
+            onClick={[Function]}
+          >
+            <div
+              className="selected-shape"
+            >
+              <div
+                className="flex-row flex-wrap attr-wrapper block"
+              >
+                <span>
+                  svg
+                </span>
+                <span
+                  className="attr-pair"
+                >
+                  <span
+                    className="key-name"
+                  >
+                    viewBox
+                  </span>
+                  <span
+                    className=""
+                  >
+                    0 0 720 720
+                  </span>
+                </span>
+              </div>
+            </div>
+          </span>
+          <div
+            className="shapes-list"
+          >
+            <div
+              className="flex-row "
+            >
+              <button
+                className="button is-small is-danger "
+                onClick={[Function]}
+                title="Delete Shape"
+              >
+                <svg
+                  aria-hidden="true"
+                  className="svg-inline--fa fa-trash fa-w-14 "
+                  data-icon="trash"
+                  data-prefix="fas"
+                  focusable="false"
+                  role="img"
+                  style={Object {}}
+                  viewBox="0 0 448 512"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M432 32H312l-9.4-18.7A24 24 0 0 0 281.1 0H166.8a23.72 23.72 0 0 0-21.4 13.3L136 32H16A16 16 0 0 0 0 48v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16V48a16 16 0 0 0-16-16zM53.2 467a48 48 0 0 0 47.9 45h245.8a48 48 0 0 0 47.9-45L416 128H32z"
+                    fill="currentColor"
+                    style={Object {}}
+                  />
+                </svg>
+              </button>
+              <div
+                className="flex-row shape-item "
+              >
+                <div
+                  className="move-up-down-buttons"
+                >
+                  <button
+                    className="button is-small is-primary"
+                    onClick={[Function]}
+                    title="Duplicate Shape"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      className="svg-inline--fa fa-copy fa-w-14 "
+                      data-icon="copy"
+                      data-prefix="fas"
+                      focusable="false"
+                      role="img"
+                      style={Object {}}
+                      viewBox="0 0 448 512"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M320 448v40c0 13.255-10.745 24-24 24H24c-13.255 0-24-10.745-24-24V120c0-13.255 10.745-24 24-24h72v296c0 30.879 25.121 56 56 56h168zm0-344V0H152c-13.255 0-24 10.745-24 24v368c0 13.255 10.745 24 24 24h272c13.255 0 24-10.745 24-24V128H344c-13.2 0-24-10.8-24-24zm120.971-31.029L375.029 7.029A24 24 0 0 0 358.059 0H352v96h96v-6.059a24 24 0 0 0-7.029-16.97z"
+                        fill="currentColor"
+                        style={Object {}}
+                      />
+                    </svg>
+                  </button>
+                  <button
+                    className="move-up-button button is-small is-info"
+                    onClick={[Function]}
+                    title="Move Up"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      className="svg-inline--fa fa-arrow-up fa-w-14 "
+                      data-icon="arrow-up"
+                      data-prefix="fas"
+                      focusable="false"
+                      role="img"
+                      style={Object {}}
+                      viewBox="0 0 448 512"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M34.9 289.5l-22.2-22.2c-9.4-9.4-9.4-24.6 0-33.9L207 39c9.4-9.4 24.6-9.4 33.9 0l194.3 194.3c9.4 9.4 9.4 24.6 0 33.9L413 289.4c-9.5 9.5-25 9.3-34.3-.4L264 168.6V456c0 13.3-10.7 24-24 24h-32c-13.3 0-24-10.7-24-24V168.6L69.2 289.1c-9.3 9.8-24.8 10-34.3.4z"
+                        fill="currentColor"
+                        style={Object {}}
+                      />
+                    </svg>
+                  </button>
+                  <button
+                    className="move-down-button  button is-small is-info"
+                    onClick={[Function]}
+                    title="Move Down"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      className="svg-inline--fa fa-arrow-down fa-w-14 "
+                      data-icon="arrow-down"
+                      data-prefix="fas"
+                      focusable="false"
+                      role="img"
+                      style={Object {}}
+                      viewBox="0 0 448 512"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M413.1 222.5l22.2 22.2c9.4 9.4 9.4 24.6 0 33.9L241 473c-9.4 9.4-24.6 9.4-33.9 0L12.7 278.6c-9.4-9.4-9.4-24.6 0-33.9l22.2-22.2c9.5-9.5 25-9.3 34.3.4L184 343.4V56c0-13.3 10.7-24 24-24h32c13.3 0 24 10.7 24 24v287.4l114.8-120.5c9.3-9.8 24.8-10 34.3-.4z"
+                        fill="currentColor"
+                        style={Object {}}
+                      />
+                    </svg>
+                  </button>
+                </div>
+                <span
+                  onClick={[Function]}
+                >
+                  <div
+                    className="flex-row flex-wrap attr-wrapper block"
+                  >
+                    <span>
+                      circle
+                    </span>
+                    <span
+                      className="attr-pair"
+                    >
+                      <span
+                        className="key-name"
+                      >
+                        cx
+                      </span>
+                      <span
+                        className=""
+                      >
+                        151
+                      </span>
+                    </span>
+                    <span
+                      className="attr-pair"
+                    >
+                      <span
+                        className="key-name"
+                      >
+                        cy
+                      </span>
+                      <span
+                        className=""
+                      >
+                        132
+                      </span>
+                    </span>
+                    <span
+                      className="attr-pair"
+                    >
+                      <span
+                        className="key-name"
+                      >
+                        r
+                      </span>
+                      <span
+                        className=""
+                      >
+                        52
+                      </span>
+                    </span>
+                    <span
+                      className="attr-pair"
+                    >
+                      <span
+                        className="key-name"
+                      >
+                        fill
+                      </span>
+                      <span
+                        className=""
+                      >
+                        red
+                      </span>
+                    </span>
+                  </div>
+                </span>
+              </div>
+            </div>
+            <div
+              className="flex-row "
+            >
+              <button
+                className="button is-small is-danger "
+                onClick={[Function]}
+                title="Delete Shape"
+              >
+                <svg
+                  aria-hidden="true"
+                  className="svg-inline--fa fa-trash fa-w-14 "
+                  data-icon="trash"
+                  data-prefix="fas"
+                  focusable="false"
+                  role="img"
+                  style={Object {}}
+                  viewBox="0 0 448 512"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M432 32H312l-9.4-18.7A24 24 0 0 0 281.1 0H166.8a23.72 23.72 0 0 0-21.4 13.3L136 32H16A16 16 0 0 0 0 48v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16V48a16 16 0 0 0-16-16zM53.2 467a48 48 0 0 0 47.9 45h245.8a48 48 0 0 0 47.9-45L416 128H32z"
+                    fill="currentColor"
+                    style={Object {}}
+                  />
+                </svg>
+              </button>
+              <div
+                className="flex-row shape-item "
+              >
+                <div
+                  className="move-up-down-buttons"
+                >
+                  <button
+                    className="button is-small is-primary"
+                    onClick={[Function]}
+                    title="Duplicate Shape"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      className="svg-inline--fa fa-copy fa-w-14 "
+                      data-icon="copy"
+                      data-prefix="fas"
+                      focusable="false"
+                      role="img"
+                      style={Object {}}
+                      viewBox="0 0 448 512"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M320 448v40c0 13.255-10.745 24-24 24H24c-13.255 0-24-10.745-24-24V120c0-13.255 10.745-24 24-24h72v296c0 30.879 25.121 56 56 56h168zm0-344V0H152c-13.255 0-24 10.745-24 24v368c0 13.255 10.745 24 24 24h272c13.255 0 24-10.745 24-24V128H344c-13.2 0-24-10.8-24-24zm120.971-31.029L375.029 7.029A24 24 0 0 0 358.059 0H352v96h96v-6.059a24 24 0 0 0-7.029-16.97z"
+                        fill="currentColor"
+                        style={Object {}}
+                      />
+                    </svg>
+                  </button>
+                  <button
+                    className="move-up-button button is-small is-info"
+                    onClick={[Function]}
+                    title="Move Up"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      className="svg-inline--fa fa-arrow-up fa-w-14 "
+                      data-icon="arrow-up"
+                      data-prefix="fas"
+                      focusable="false"
+                      role="img"
+                      style={Object {}}
+                      viewBox="0 0 448 512"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M34.9 289.5l-22.2-22.2c-9.4-9.4-9.4-24.6 0-33.9L207 39c9.4-9.4 24.6-9.4 33.9 0l194.3 194.3c9.4 9.4 9.4 24.6 0 33.9L413 289.4c-9.5 9.5-25 9.3-34.3-.4L264 168.6V456c0 13.3-10.7 24-24 24h-32c-13.3 0-24-10.7-24-24V168.6L69.2 289.1c-9.3 9.8-24.8 10-34.3.4z"
+                        fill="currentColor"
+                        style={Object {}}
+                      />
+                    </svg>
+                  </button>
+                  <button
+                    className="move-down-button  button is-small is-info"
+                    onClick={[Function]}
+                    title="Move Down"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      className="svg-inline--fa fa-arrow-down fa-w-14 "
+                      data-icon="arrow-down"
+                      data-prefix="fas"
+                      focusable="false"
+                      role="img"
+                      style={Object {}}
+                      viewBox="0 0 448 512"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M413.1 222.5l22.2 22.2c9.4 9.4 9.4 24.6 0 33.9L241 473c-9.4 9.4-24.6 9.4-33.9 0L12.7 278.6c-9.4-9.4-9.4-24.6 0-33.9l22.2-22.2c9.5-9.5 25-9.3 34.3.4L184 343.4V56c0-13.3 10.7-24 24-24h32c13.3 0 24 10.7 24 24v287.4l114.8-120.5c9.3-9.8 24.8-10 34.3-.4z"
+                        fill="currentColor"
+                        style={Object {}}
+                      />
+                    </svg>
+                  </button>
+                </div>
+                <span
+                  onClick={[Function]}
+                >
+                  <div
+                    className="flex-row flex-wrap attr-wrapper block"
+                  >
+                    <span>
+                      circle
+                    </span>
+                    <span
+                      className="attr-pair"
+                    >
+                      <span
+                        className="key-name"
+                      >
+                        cx
+                      </span>
+                      <span
+                        className=""
+                      >
+                        101
+                      </span>
+                    </span>
+                    <span
+                      className="attr-pair"
+                    >
+                      <span
+                        className="key-name"
+                      >
+                        cy
+                      </span>
+                      <span
+                        className=""
+                      >
+                        120
+                      </span>
+                    </span>
+                    <span
+                      className="attr-pair"
+                    >
+                      <span
+                        className="key-name"
+                      >
+                        r
+                      </span>
+                      <span
+                        className=""
+                      >
+                        40
+                      </span>
+                    </span>
+                    <span
+                      className="attr-pair"
+                    >
+                      <span
+                        className="key-name"
+                      >
+                        fill
+                      </span>
+                      <span
+                        className=""
+                      >
+                        pink
+                      </span>
+                    </span>
+                  </div>
+                </span>
+              </div>
+            </div>
+            <div
+              className="flex-row "
+            >
+              <button
+                className="button is-small is-danger "
+                onClick={[Function]}
+                title="Delete Shape"
+              >
+                <svg
+                  aria-hidden="true"
+                  className="svg-inline--fa fa-trash fa-w-14 "
+                  data-icon="trash"
+                  data-prefix="fas"
+                  focusable="false"
+                  role="img"
+                  style={Object {}}
+                  viewBox="0 0 448 512"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M432 32H312l-9.4-18.7A24 24 0 0 0 281.1 0H166.8a23.72 23.72 0 0 0-21.4 13.3L136 32H16A16 16 0 0 0 0 48v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16V48a16 16 0 0 0-16-16zM53.2 467a48 48 0 0 0 47.9 45h245.8a48 48 0 0 0 47.9-45L416 128H32z"
+                    fill="currentColor"
+                    style={Object {}}
+                  />
+                </svg>
+              </button>
+              <div
+                className="flex-row shape-item "
+              >
+                <div
+                  className="move-up-down-buttons"
+                >
+                  <button
+                    className="button is-small is-primary"
+                    onClick={[Function]}
+                    title="Duplicate Shape"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      className="svg-inline--fa fa-copy fa-w-14 "
+                      data-icon="copy"
+                      data-prefix="fas"
+                      focusable="false"
+                      role="img"
+                      style={Object {}}
+                      viewBox="0 0 448 512"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M320 448v40c0 13.255-10.745 24-24 24H24c-13.255 0-24-10.745-24-24V120c0-13.255 10.745-24 24-24h72v296c0 30.879 25.121 56 56 56h168zm0-344V0H152c-13.255 0-24 10.745-24 24v368c0 13.255 10.745 24 24 24h272c13.255 0 24-10.745 24-24V128H344c-13.2 0-24-10.8-24-24zm120.971-31.029L375.029 7.029A24 24 0 0 0 358.059 0H352v96h96v-6.059a24 24 0 0 0-7.029-16.97z"
+                        fill="currentColor"
+                        style={Object {}}
+                      />
+                    </svg>
+                  </button>
+                  <button
+                    className="move-up-button button is-small is-info"
+                    onClick={[Function]}
+                    title="Move Up"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      className="svg-inline--fa fa-arrow-up fa-w-14 "
+                      data-icon="arrow-up"
+                      data-prefix="fas"
+                      focusable="false"
+                      role="img"
+                      style={Object {}}
+                      viewBox="0 0 448 512"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M34.9 289.5l-22.2-22.2c-9.4-9.4-9.4-24.6 0-33.9L207 39c9.4-9.4 24.6-9.4 33.9 0l194.3 194.3c9.4 9.4 9.4 24.6 0 33.9L413 289.4c-9.5 9.5-25 9.3-34.3-.4L264 168.6V456c0 13.3-10.7 24-24 24h-32c-13.3 0-24-10.7-24-24V168.6L69.2 289.1c-9.3 9.8-24.8 10-34.3.4z"
+                        fill="currentColor"
+                        style={Object {}}
+                      />
+                    </svg>
+                  </button>
+                  <button
+                    className="move-down-button  button is-small is-info"
+                    onClick={[Function]}
+                    title="Move Down"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      className="svg-inline--fa fa-arrow-down fa-w-14 "
+                      data-icon="arrow-down"
+                      data-prefix="fas"
+                      focusable="false"
+                      role="img"
+                      style={Object {}}
+                      viewBox="0 0 448 512"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M413.1 222.5l22.2 22.2c9.4 9.4 9.4 24.6 0 33.9L241 473c-9.4 9.4-24.6 9.4-33.9 0L12.7 278.6c-9.4-9.4-9.4-24.6 0-33.9l22.2-22.2c9.5-9.5 25-9.3 34.3.4L184 343.4V56c0-13.3 10.7-24 24-24h32c13.3 0 24 10.7 24 24v287.4l114.8-120.5c9.3-9.8 24.8-10 34.3-.4z"
+                        fill="currentColor"
+                        style={Object {}}
+                      />
+                    </svg>
+                  </button>
+                </div>
+                <span
+                  onClick={[Function]}
+                >
+                  <div
+                    className="flex-row flex-wrap attr-wrapper block"
+                  >
+                    <span>
+                      circle
+                    </span>
+                    <span
+                      className="attr-pair"
+                    >
+                      <span
+                        className="key-name"
+                      >
+                        cx
+                      </span>
+                      <span
+                        className=""
+                      >
+                        601
+                      </span>
+                    </span>
+                    <span
+                      className="attr-pair"
+                    >
+                      <span
+                        className="key-name"
+                      >
+                        cy
+                      </span>
+                      <span
+                        className=""
+                      >
+                        420
+                      </span>
+                    </span>
+                    <span
+                      className="attr-pair"
+                    >
+                      <span
+                        className="key-name"
+                      >
+                        r
+                      </span>
+                      <span
+                        className=""
+                      >
+                        140
+                      </span>
+                    </span>
+                    <span
+                      className="attr-pair"
+                    >
+                      <span
+                        className="key-name"
+                      >
+                        fill
+                      </span>
+                      <span
+                        className=""
+                      >
+                        green
+                      </span>
+                    </span>
+                  </div>
+                </span>
+              </div>
+            </div>
+            <div
+              className="flex-row "
+            >
+              <button
+                className="button is-small is-danger "
+                onClick={[Function]}
+                title="Delete Shape"
+              >
+                <svg
+                  aria-hidden="true"
+                  className="svg-inline--fa fa-trash fa-w-14 "
+                  data-icon="trash"
+                  data-prefix="fas"
+                  focusable="false"
+                  role="img"
+                  style={Object {}}
+                  viewBox="0 0 448 512"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M432 32H312l-9.4-18.7A24 24 0 0 0 281.1 0H166.8a23.72 23.72 0 0 0-21.4 13.3L136 32H16A16 16 0 0 0 0 48v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16V48a16 16 0 0 0-16-16zM53.2 467a48 48 0 0 0 47.9 45h245.8a48 48 0 0 0 47.9-45L416 128H32z"
+                    fill="currentColor"
+                    style={Object {}}
+                  />
+                </svg>
+              </button>
+              <div
+                className="flex-row shape-item "
+              >
+                <div
+                  className="move-up-down-buttons"
+                >
+                  <button
+                    className="button is-small is-primary"
+                    onClick={[Function]}
+                    title="Duplicate Shape"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      className="svg-inline--fa fa-copy fa-w-14 "
+                      data-icon="copy"
+                      data-prefix="fas"
+                      focusable="false"
+                      role="img"
+                      style={Object {}}
+                      viewBox="0 0 448 512"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M320 448v40c0 13.255-10.745 24-24 24H24c-13.255 0-24-10.745-24-24V120c0-13.255 10.745-24 24-24h72v296c0 30.879 25.121 56 56 56h168zm0-344V0H152c-13.255 0-24 10.745-24 24v368c0 13.255 10.745 24 24 24h272c13.255 0 24-10.745 24-24V128H344c-13.2 0-24-10.8-24-24zm120.971-31.029L375.029 7.029A24 24 0 0 0 358.059 0H352v96h96v-6.059a24 24 0 0 0-7.029-16.97z"
+                        fill="currentColor"
+                        style={Object {}}
+                      />
+                    </svg>
+                  </button>
+                  <button
+                    className="move-up-button button is-small is-info"
+                    onClick={[Function]}
+                    title="Move Up"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      className="svg-inline--fa fa-arrow-up fa-w-14 "
+                      data-icon="arrow-up"
+                      data-prefix="fas"
+                      focusable="false"
+                      role="img"
+                      style={Object {}}
+                      viewBox="0 0 448 512"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M34.9 289.5l-22.2-22.2c-9.4-9.4-9.4-24.6 0-33.9L207 39c9.4-9.4 24.6-9.4 33.9 0l194.3 194.3c9.4 9.4 9.4 24.6 0 33.9L413 289.4c-9.5 9.5-25 9.3-34.3-.4L264 168.6V456c0 13.3-10.7 24-24 24h-32c-13.3 0-24-10.7-24-24V168.6L69.2 289.1c-9.3 9.8-24.8 10-34.3.4z"
+                        fill="currentColor"
+                        style={Object {}}
+                      />
+                    </svg>
+                  </button>
+                  <button
+                    className="move-down-button  button is-small is-info"
+                    onClick={[Function]}
+                    title="Move Down"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      className="svg-inline--fa fa-arrow-down fa-w-14 "
+                      data-icon="arrow-down"
+                      data-prefix="fas"
+                      focusable="false"
+                      role="img"
+                      style={Object {}}
+                      viewBox="0 0 448 512"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M413.1 222.5l22.2 22.2c9.4 9.4 9.4 24.6 0 33.9L241 473c-9.4 9.4-24.6 9.4-33.9 0L12.7 278.6c-9.4-9.4-9.4-24.6 0-33.9l22.2-22.2c9.5-9.5 25-9.3 34.3.4L184 343.4V56c0-13.3 10.7-24 24-24h32c13.3 0 24 10.7 24 24v287.4l114.8-120.5c9.3-9.8 24.8-10 34.3-.4z"
+                        fill="currentColor"
+                        style={Object {}}
+                      />
+                    </svg>
+                  </button>
+                </div>
+                <span
+                  onClick={[Function]}
+                >
+                  <div
+                    className="flex-row flex-wrap attr-wrapper block"
+                  >
+                    <span>
+                      rect
+                    </span>
+                    <span
+                      className="attr-pair"
+                    >
+                      <span
+                        className="key-name"
+                      >
+                        x
+                      </span>
+                      <span
+                        className=""
+                      >
+                        40
+                      </span>
+                    </span>
+                    <span
+                      className="attr-pair"
+                    >
+                      <span
+                        className="key-name"
+                      >
+                        y
+                      </span>
+                      <span
+                        className=""
+                      >
+                        320
+                      </span>
+                    </span>
+                    <span
+                      className="attr-pair"
+                    >
+                      <span
+                        className="key-name"
+                      >
+                        width
+                      </span>
+                      <span
+                        className=""
+                      >
+                        140
+                      </span>
+                    </span>
+                    <span
+                      className="attr-pair"
+                    >
+                      <span
+                        className="key-name"
+                      >
+                        height
+                      </span>
+                      <span
+                        className=""
+                      >
+                        200
+                      </span>
+                    </span>
+                  </div>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="panel"
+    >
+      <div
+        className="panel-heading"
+      >
+        Edit properties of the selected 
+        <b>
+          svg
+        </b>
+      </div>
+      <div
+        className="panel-block"
+      >
+        <div
+          className="flex-row flex-wrap  block"
+        >
+          <span>
+            Add property:  
+          </span>
+          <span
+            className="field has-addons"
+          >
+            <span
+              className="control"
+            >
+              <span
+                className="select   is-small"
+              >
+                <select
+                  onChange={[Function]}
+                  value="fill"
+                >
+                  <option>
+                    fill
+                  </option>
+                  <option>
+                    stroke
+                  </option>
+                  <option>
+                    strokeWidth
+                  </option>
+                </select>
+              </span>
+            </span>
+            <span
+              className="control"
+            >
+              <button
+                className="button is-small is-primary"
+                onClick={[Function]}
+              >
+                +
+              </button>
+            </span>
+          </span>
+          <span
+            className="flex-row has-hmargin-med"
+          >
+            <span
+              className="key-name"
+            >
+              viewBox
+              :  
+            </span>
+            <span
+              className="field has-addons"
+            >
+              <span
+                className="control"
+              >
+                <input
+                  className="input is-small    "
+                  onChange={[Function]}
+                  style={
+                    Object {
+                      "width": "12rem",
+                    }
+                  }
+                  value="0 0 720 720"
+                />
+              </span>
+              <span
+                className="control"
+              >
+                <button
+                  className="button is-small is-danger"
+                  onClick={[Function]}
+                >
+                  <svg
+                    aria-hidden="true"
+                    className="svg-inline--fa fa-trash fa-w-14 "
+                    data-icon="trash"
+                    data-prefix="fas"
+                    focusable="false"
+                    role="img"
+                    style={Object {}}
+                    viewBox="0 0 448 512"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M432 32H312l-9.4-18.7A24 24 0 0 0 281.1 0H166.8a23.72 23.72 0 0 0-21.4 13.3L136 32H16A16 16 0 0 0 0 48v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16V48a16 16 0 0 0-16-16zM53.2 467a48 48 0 0 0 47.9 45h245.8a48 48 0 0 0 47.9-45L416 128H32z"
+                      fill="currentColor"
+                      style={Object {}}
+                    />
+                  </svg>
+                </button>
+              </span>
+            </span>
+          </span>
+        </div>
+      </div>
+    </div>
+    <div
+      className="panel"
+    >
+      <div
+        className="panel-heading"
+      >
+        Transform SVG
+      </div>
+      <div
+        className="panel-block"
+      >
+        <div
+          className="flex-row"
+        >
+          <button
+            className="button is-small is-warning has-hmargin-med"
+            onClick={[Function]}
+          >
+            Randomise
+          </button>
+          <button
+            className="button is-small is-danger has-hmargin-med"
+            onClick={[Function]}
+          >
+            Clear
+          </button>
+          <span
+            className="field has-addons has-hmargin-med "
+          >
+            <span
+              className="control"
+            >
+              <span
+                className="select is-small"
+              >
+                <select
+                  onChange={[Function]}
+                  value="circle"
+                >
+                  <option>
+                    circle
+                  </option>
+                  <option>
+                    rect
+                  </option>
+                  <option>
+                    polygon
+                  </option>
+                  <option>
+                    path
+                  </option>
+                  <option>
+                    line
+                  </option>
+                </select>
+              </span>
+            </span>
+            <span
+              className="control"
+            >
+              <button
+                className="button  is-small is-primary"
+                onClick={[Function]}
+              >
+                Add Shape
+              </button>
+            </span>
+          </span>
+        </div>
+      </div>
+    </div>
+    <div
+      className="panel"
+    >
+      <div
+        className="panel-heading"
+      >
+        Source code:
+      </div>
+      <pre
+        className="panel-block code-content"
+      >
+        
+&lt;svg viewBox="0 0 720 720"&gt; 
+ &lt;circle cx="151" cy="132" r="52" fill="red"/&gt;
+ &lt;circle cx="101" cy="120" r="40" fill="pink"/&gt;
+ &lt;circle cx="601" cy="420" r="140" fill="green"/&gt;
+ &lt;rect x="40" y="320" width="140" height="200"/&gt;
+&lt;/svg&gt;
+  
+      </pre>
+    </div>
+    <div
+      className="panel"
+    >
+      <div
+        className="panel-heading"
+      >
+        Parse your SVG code
+      </div>
+      <div
+        className="panel-block"
+      >
+        <div
+          className="flex-column  margined"
+        >
+          <textarea
+            className="parse-input-ta"
+          />
+          <button
+            className="button is-small is-info"
+            onClick={[Function]}
+          >
+            Parse
+          </button>
+        </div>
+      </div>
+    </div>
+    <div
+      className="panel"
+    >
+      <div
+        className="panel-heading"
+      >
+        Save & Load to localStorage
+      </div>
+      <div
+        className="panel-block"
+      >
+        <button
+          className="button is-danger has-hmargin-med"
+          onClick={[Function]}
+        >
+          Save
+        </button>
+        <button
+          className="button is-info has-hmargin-med"
+          disabled={true}
+          onClick={[Function]}
+        >
+          Load
+        </button>
+      </div>
+    </div>
+  </main>
+</div>
+`;

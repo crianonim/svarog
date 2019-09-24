@@ -7,7 +7,6 @@ import { faTrash } from '@fortawesome/free-solid-svg-icons'
 
 const BasicAttrEditor = ({attrs,element,changed}) => {
   const [controls, setControls] = useState(Object.entries(attrs));
-  console.log({controls})
   const validAttrs = Object.entries(attrsData)
    .filter( ([_,attr])=>!attr.el || attr.el.includes(element))
    .map(([key,_])=>key);
