@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState} from "react";
 import { start, defaultValues, createRandomSVG } from "./lib/helper.js";
 import "./App.css";
 import "../node_modules/bulma/css/bulma.min.css"
 import CodePanel from "./CodePanel.js";
-import BasicAttrEditor from "./BasicAttrEditor.js";
 import InputTextArea from './InputTextArea';
 import SvgView from './SvgView.js';
 import AddShape from './AddShape.js';
@@ -14,12 +13,6 @@ import SvgProperties from "./SvgProperties.js";
 import SaveLoadPanel from "./SaveLoadPanel.js";
 
 const App = () => {
-  useEffect(() => {
-    console.log("RENDER",{selectedShape});
-    return () => {
-      console.log("clean-up");
-    };
-  });
    
   // state
   const [shapes, setShapes] = useState(start);
