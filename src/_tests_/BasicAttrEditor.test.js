@@ -13,13 +13,18 @@ it("changes is fired when add property is clicked",()=>{
     wrapper.find("button.button.is-small.is-primary").simulate('click');
     expect(changed).toHaveBeenCalledTimes(1);
 })
-it("changes is has new set attributes with new selected one",()=>{
+it("changes is called with new set attributes with new selected one",()=>{
     const changed=jest.fn();
     const wrapper=shallow(<BasicAttrEditor changed={changed} element="circle" attrs={{"x":10,"y":20,"r":30}}/>) 
     wrapper.find("button.button.is-small.is-primary").simulate('click');
     expect(changed).toBeCalledWith({ x: 10, y: 20, r: 30, fill: 'pink' });
 })
-
+it("changes is called without deleted attr",()=>{
+    const changed=jest.fn();
+    const wrapper=shallow(<BasicAttrEditor changed={changed} element="circle" attrs={{"x":10,"y":20,"r":30}}/>) 
+    wrapper.find("button.button.is-small.is-danger").first().simulate('click');
+    expect(changed).toBeCalledWith({y: 20, r: 30 });
+})
 it("has 3 attributes and 3 inputs",()=>{
     const wrapper=shallow(<BasicAttrEditor element="circle" attrs={{"x":10,"y":20,"r":30}}/>) 
     const attrs=wrapper.find('.key-name')
