@@ -1,6 +1,6 @@
 import React from "react";
 import { shallow } from "enzyme"
-import AddShape from "../AddShape"
+import AddShape from "../components/AddShape"
 
 it("should react to click with a default shape",()=>{
     const addShape=jest.fn()

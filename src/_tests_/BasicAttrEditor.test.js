@@ -1,7 +1,7 @@
 import React from "react";
 import { shallow } from "enzyme";
 import toJson from "enzyme-to-json";
-import BasicAttrEditor from "../BasicAttrEditor";
+import BasicAttrEditor from "../components/BasicAttrEditor";
 
 it("matches a snapshot",()=>{
     const wrapper=shallow(<BasicAttrEditor element="circle" attrs={{"x":10,"y":20,"r":30}}/>) 

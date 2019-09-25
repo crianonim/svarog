@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./AddShape.css";
-import { defaultValues } from "./lib/helper.js";
+import { defaultValues } from "../lib/helper.js";
 
 const AddShape = props => {
   const [newShape, setNewShape] = useState("circle");

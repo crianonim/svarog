@@ -1,6 +1,6 @@
 import React from "react";
 import { shallow } from "enzyme";
-import Messages from "../Messages";
+import Messages from "../components/Messages";
 import toJson from "enzyme-to-json";
 
 it("should render message text", () => {
