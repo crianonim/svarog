@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import './BasicAttrEditor.css';
-import {attrsData} from './lib/helper.js';
+import {attrsData} from '../lib/helper.js';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import { faTrash } from '@fortawesome/free-solid-svg-icons'
 

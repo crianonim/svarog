@@ -2,15 +2,15 @@ import React, { useState} from "react";
 import { start, defaultValues, createRandomSVG } from "./lib/helper.js";
 import "./App.css";
 import "../node_modules/bulma/css/bulma.min.css"
-import CodePanel from "./CodePanel.js";
-import InputTextArea from './InputTextArea';
-import SvgView from './SvgView.js';
-import AddShape from './AddShape.js';
-import Messages from './Messages.js';
-import CurrentShapePanel from './CurrentShapePanel.js';
-import ShapesList from "./ShapesList.js";
-import SvgProperties from "./SvgProperties.js";
-import SaveLoadPanel from "./SaveLoadPanel.js";
+import CodePanel from "./components/CodePanel.js";
+import InputTextArea from './components/InputTextArea';
+import SvgView from './components/SvgView.js';
+import AddShape from './components/AddShape.js';
+import Messages from './components/Messages.js';
+import CurrentShapePanel from './components/CurrentShapePanel.js';
+import ShapesList from "./components/ShapesList.js";
+import SvgProperties from "./components/SvgProperties.js";
+import SaveLoadPanel from "./components/SaveLoadPanel.js";
 
 const App = () => {
    
