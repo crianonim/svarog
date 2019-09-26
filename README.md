@@ -1,68 +1,49 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Svarog
 
-## Available Scripts
+[![Build Status](https://travis-ci.com/crianonim/svarog.svg?branch=master)](https://travis-ci.com/crianonim/svarog)
 
-In the project directory, you can run:
+SVG editor and generator focused on precision and manually updating the shape properties
+- ![](https://i.imgur.com/KVfQne4.png)
 
-### `npm start`
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Problem / Requirements
+I would like to...
+- create and edit a SVG
+- work offline if needed
+- being able to save current work locally
+- import existing SVG
+## Tech stack used to solve
+- React with hooks
+- SVG
+- Sass
+- Jest and Enzyme
+Bulma
+## Learning Outcomes
+- Creating, displaying, parsing and manipulating SVG and -their child element using code
+- Using Bulma css library for consistent look
+- Use React with hooks (including custom hooks) to manage the UI
+- Testing React components with Enzyme
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
 
-### `npm test`
+## Install
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+After cloning the repo:
 
-### `npm run build`
+`npm install`
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+To start development live-server on port 3000:
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+`npm start`
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+To create a production build
 
-### `npm run eject`
+`npm run build`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+This will create the whole app in `/build` directory that can be deployed on any server. Note: it does require an actual server, opening local files in the broweser won't work.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Testing
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+`npm test` will run Jest in watch mode, updating results as files are being changed
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+## Name
+According to Wikipedia https://en.wikipedia.org/wiki/Svarog, Svarog is a Slavic deity of celestial fire and blacksmithing, and conveniently has all the letters needed for SVG ;)
