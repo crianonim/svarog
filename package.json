@@ -18,8 +18,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test --coverage",
     "eject": "react-scripts eject",
-    "deploy": "gh-pages -d build",
-    "report-coverage": "nyc report --reporter=text-lcov > coverage.lcov && codecov"
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"
