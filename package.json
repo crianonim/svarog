@@ -16,10 +16,10 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "react-scripts test --coverage",
     "eject": "react-scripts eject",
     "deploy": "gh-pages -d build",
-    "report-coverage": " nyc report --reporter=text-lcov > coverage.lcov && codecov"
+    "report-coverage": "nyc report --reporter=text-lcov > coverage.lcov && codecov"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -37,13 +37,11 @@
     ]
   },
   "devDependencies": {
-    "codecov": "^3.6.1",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.14.0",
     "enzyme-to-json": "^3.4.0",
     "gh-pages": "^2.1.1",
     "node-sass": "^4.12.0",
-    "nyc": "^14.1.1",
     "react-test-renderer": "^16.9.0"
   }
 }
