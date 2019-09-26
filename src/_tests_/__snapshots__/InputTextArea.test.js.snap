@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches a snapshrot 1`] = `
+<div
+  className="panel"
+>
+  <div
+    className="panel-heading"
+  >
+    Parse your SVG code
+  </div>
+  <div
+    className="panel-block"
+  >
+    <div
+      className="flex-column  margined"
+    >
+      <textarea
+        className="parse-input-ta"
+      />
+      <button
+        className="button is-small is-info"
+        onClick={[Function]}
+      >
+        Parse
+      </button>
+    </div>
+  </div>
+</div>
+`;
