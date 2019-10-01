@@ -3,7 +3,7 @@
 [![Build Status](https://travis-ci.com/crianonim/svarog.svg?branch=master)](https://travis-ci.com/crianonim/svarog)
 
 SVG editor and generator focused on precision and manually updating the shape properties
-- ![](https://i.imgur.com/KVfQne4.png)
+![](https://i.imgur.com/KVfQne4.png)
 
 
 ## Problem / Requirements
@@ -17,7 +17,7 @@ I would like to...
 - SVG
 - Sass
 - Jest and Enzyme
-Bulma
+- Bulma
 ## Learning Outcomes
 - Creating, displaying, parsing and manipulating SVG and -their child element using code
 - Using Bulma css library for consistent look
