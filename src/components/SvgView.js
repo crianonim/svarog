@@ -1,4 +1,5 @@
-import React,{useState} from 'react';
+import React,{useState,useRef} from 'react';
+import Coords from './Coords';
 import './SvgView.css';
 
 
@@ -6,12 +7,13 @@ import './SvgView.css';
 
 const SvgView = (props) => {
     const [zoom,setZoom] = useState(400);
-
+    const svgCanvas=useRef(null)
     const setZoomHandler = zoom => () => setZoom(zoom);
     return (
         <div className="panel">
           <div className="panel-heading">Your SVG</div>
           <p className="panel-tabs">
+            <Coords svgCanvas={svgCanvas}/>
             <span className="align-self-center">Zoom:</span>
             <a onClick={setZoomHandler(100)} className={zoom===100?"is-active":""}>100p</a>
             <a onClick={setZoomHandler(200)} className={zoom===200?"is-active":""}>200px</a>
@@ -21,7 +23,7 @@ const SvgView = (props) => {
          <div className="panel-block">
            <div className="svg-wrapper">
 
-           <svg {...props.attrs} className="Svg-view" onClick={console.log} style={{width:zoom,height:zoom}}>
+           <svg ref={svgCanvas} {...props.attrs} className="Svg-view" onClick={console.log} style={{width:zoom,height:zoom}}>
           {props.shapes.map((shape, i) => {
             const ShapeType = shape.shape;
             return <ShapeType data-id={shape.id} onClick={(e)=>{
