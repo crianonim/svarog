@@ -16,7 +16,7 @@ const App = () => {
    
   // state
   const [shapes, setShapes] = useState(start);
-  const [svgAttrs, setSvgAttrs] = useState({ viewBox: "0 0 720 720" });
+  const [svgAttrs, setSvgAttrs] = useState({ viewBox: "0 0 400 400" });
   const [selectedShape, setSelectedShape] = useState(null);
   const [saved,setSaved] = useState(localStorage.getItem('save'));
   const [message,setMessage] = useState(null)
