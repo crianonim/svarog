@@ -3,10 +3,10 @@ import { shallow } from "enzyme";
 import toJson from "enzyme-to-json";
 import BasicAttrEditor from "../components/BasicAttrEditor";
 
-it("matches a snapshot",()=>{
-    const wrapper=shallow(<BasicAttrEditor element="circle" attrs={{"x":10,"y":20,"r":30}}/>) 
-    expect(toJson(wrapper)).toMatchSnapshot();
-});
+// it("matches a snapshot",()=>{
+//     const wrapper=shallow(<BasicAttrEditor element="circle" attrs={{"x":10,"y":20,"r":30}}/>) 
+//     expect(toJson(wrapper)).toMatchSnapshot();
+// });
 it("changes is fired when add property is clicked",()=>{
     const changed=jest.fn();
     const wrapper=shallow(<BasicAttrEditor changed={changed} element="circle" attrs={{"x":10,"y":20,"r":30}}/>) 

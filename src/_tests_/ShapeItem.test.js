@@ -3,10 +3,7 @@ import { shallow } from "enzyme";
 import toJson from "enzyme-to-json";
 import ShapeItem from "../components/ShapeItem";
 
-it("matches a snapshot",()=>{
-    const wrapper=shallow(<ShapeItem shape={{shape:"circle",attributes:{"x":10,"y":20,"r":30}}}/>) 
-    expect(toJson(wrapper)).toMatchSnapshot();
-});
+
 
 it("duplicate button can be clicked",()=>{
     const duplicate=jest.fn();

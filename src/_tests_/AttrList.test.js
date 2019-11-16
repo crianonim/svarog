@@ -3,10 +3,10 @@ import { shallow } from "enzyme";
 import toJson from "enzyme-to-json";
 import AttrList from "../components/AttrList";
 
-it("matches a snapshot",()=>{
-    const wrapper=shallow(<AttrList element="circle" attrs={{"x":10,"y":20,"r":30}}/>) 
-    expect(toJson(wrapper)).toMatchSnapshot();
-});
+// it("matches a snapshot",()=>{
+//     const wrapper=shallow(<AttrList element="circle" attrs={{"x":10,"y":20,"r":30}}/>) 
+//     expect(toJson(wrapper)).toMatchSnapshot();
+// });
 
 it("has a shape name",()=>{
     const wrapper=shallow(<AttrList element="circle" attrs={{"x":10,"y":20,"r":30}}/>) 

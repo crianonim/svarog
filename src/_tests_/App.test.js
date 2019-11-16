@@ -9,7 +9,7 @@ it('renders without crashing', () => {
 });
 
 
-it("matches snapshot",()=>{
-  const json=renderer.create(<App />).toJSON();
-  expect(json).toMatchSnapshot()
-})
+// it("matches snapshot",()=>{
+//   const json=renderer.create(<App />).toJSON();
+//   expect(json).toMatchSnapshot()
+// })

@@ -29,7 +29,3 @@ it("should have a class of depending on message tag set before #", () => {
   const wrapper = shallow(<Messages message="w#I warn you!"></Messages>);
   expect(wrapper.find("p").hasClass("message-type-w")).toBe(true);
 });
-it("matches snapshot", () => {
-  const wrapper = shallow(<Messages message="w#I warn you!"></Messages>);
-  expect(toJson(wrapper)).toMatchSnapshot();
-});
