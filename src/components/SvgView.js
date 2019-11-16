@@ -13,9 +13,9 @@ const SvgView = (props) => {
         <div className="panel">
           <div className="panel-heading">Your SVG</div>
           <p className="panel-tabs">
-            <Coords svgCanvas={svgCanvas}/>
+            <Coords svgCanvas={svgCanvas} zoom={zoom/400}/>
             <span className="align-self-center">Zoom:</span>
-            <a onClick={setZoomHandler(100)} className={zoom===100?"is-active":""}>100p</a>
+            <a onClick={setZoomHandler(100)} className={zoom===100?"is-active":""}>100px</a>
             <a onClick={setZoomHandler(200)} className={zoom===200?"is-active":""}>200px</a>
             <a onClick={setZoomHandler(400)} className={zoom===400?"is-active":""}>400px</a>
             {/* <a onClick={setZoomHandler(800)}>800px</a> */}
