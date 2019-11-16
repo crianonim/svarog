@@ -55,13 +55,22 @@ exports[`matches snapshot 1`] = `
         <span
           className="align-self-center"
         >
+          X:
+          0
+           Y:
+          0
+            
+        </span>
+        <span
+          className="align-self-center"
+        >
           Zoom:
         </span>
         <a
           className=""
           onClick={[Function]}
         >
-          100p
+          100px
         </a>
         <a
           className=""
@@ -91,7 +100,7 @@ exports[`matches snapshot 1`] = `
                 "width": 400,
               }
             }
-            viewBox="0 0 720 720"
+            viewBox="0 0 400 400"
           >
             <circle
               cx={151}
@@ -110,8 +119,8 @@ exports[`matches snapshot 1`] = `
               r={40}
             />
             <circle
-              cx={601}
-              cy={420}
+              cx={275}
+              cy={275}
               data-id={2}
               fill="green"
               onClick={[Function]}
@@ -164,7 +173,7 @@ exports[`matches snapshot 1`] = `
                   <span
                     className=""
                   >
-                    0 0 720 720
+                    0 0 400 400
                   </span>
                 </span>
               </div>
@@ -637,7 +646,7 @@ exports[`matches snapshot 1`] = `
                       <span
                         className=""
                       >
-                        601
+                        275
                       </span>
                     </span>
                     <span
@@ -651,7 +660,7 @@ exports[`matches snapshot 1`] = `
                       <span
                         className=""
                       >
-                        420
+                        275
                       </span>
                     </span>
                     <span
@@ -940,7 +949,7 @@ exports[`matches snapshot 1`] = `
                       "width": "12rem",
                     }
                   }
-                  value="0 0 720 720"
+                  value="0 0 400 400"
                 />
               </span>
               <span
@@ -1057,10 +1066,10 @@ exports[`matches snapshot 1`] = `
         className="panel-block code-content"
       >
         
-&lt;svg viewBox="0 0 720 720"&gt; 
+&lt;svg viewBox="0 0 400 400"&gt; 
  &lt;circle cx="151" cy="132" r="52" fill="red"/&gt;
  &lt;circle cx="101" cy="120" r="40" fill="pink"/&gt;
- &lt;circle cx="601" cy="420" r="140" fill="green"/&gt;
+ &lt;circle cx="275" cy="275" r="140" fill="green"/&gt;
  &lt;rect x="40" y="320" width="140" height="200"/&gt;
 &lt;/svg&gt;
   
